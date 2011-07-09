@@ -1,0 +1,1 @@
+$('#lga > img:first').attr('src', 'http://www.trollface.net/trollface.png').attr('height', '').css('margin-top', '-120px');

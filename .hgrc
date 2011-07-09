@@ -9,6 +9,7 @@ meld.priority = 1
 [extensions]
 hgext.convert=
 hgext.bookmarks =
+hggit = ~/src/hg-git/hggit
 
 [trusted]
 users = bjorn

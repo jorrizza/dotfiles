@@ -1,4 +1,4 @@
 #!/bin/sh
 # Emacs custom GTK2 theme
 
-GTK2_RC_FILES=~/.gtkrc-emacs /usr/bin/emacs23-x
+GTK2_RC_FILES=~/.gtkrc-emacs /usr/bin/emacs23-x $@

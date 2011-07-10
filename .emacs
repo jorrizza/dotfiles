@@ -2,6 +2,7 @@
 ; GNU Emacs 23.2.1 (Debian 23.2+1-2)
 
 (add-to-list 'load-path "~/.emacs.d/")
+(add-to-list 'load-path "~/go/misc/emacs/" t)
 
 ; We don't need these
 (toggle-scroll-bar -1)
@@ -24,17 +25,22 @@
 ; Column Marker
 (require 'column-marker)
 
+; Go
+(require 'go-mode-load)
+(add-hook 'go-mode-hook '(lambda ()
+			   (set 'tab-width 2)
+			   (interactive) (column-marker-1 80)
+			   (local-set-key (kbd "RET") 'reindent-then-newline-and-indent)))
+
 ; C
 (add-hook 'c-mode-hook '(lambda ()
+			  (interactive) (column-marker-1 80)
 			  (local-set-key (kbd "RET") 'reindent-then-newline-and-indent)))
-(add-hook 'c-mode-hook (lambda () 
-			    (interactive) (column-marker-1 80)))
 
 ; Ruby
 (add-hook 'ruby-mode-hook '(lambda ()
+			     (interactive) (column-marker-1 80)
 			     (local-set-key (kbd "RET") 'reindent-then-newline-and-indent)))
-(add-hook 'ruby-mode-hook (lambda () 
-			    (interactive) (column-marker-1 80)))
 
 ; YAML
 (add-hook 'yaml-mode-hook '(lambda ()
@@ -71,6 +77,7 @@
 
 ; LaTeX
 (add-hook 'latex-mode-hook '(lambda ()
+			      (interactive) (column-marker-1 80)
 			      (local-set-key (kbd "RET") 'reindent-then-newline-and-indent)
 			      (set 'indent-tabs-mode nil)))
 
@@ -81,26 +88,26 @@
 
 ; JavaScript
 (add-hook 'js2-mode-hook '(lambda ()
-			     (local-set-key (kbd "RET") 'reindent-then-newline-and-indent)
-			     (set 'js2-cleanup-whitespace t)
-			     (set 'js2-basic-offset 2)
-			     (set 'js2-user-font-lock-faces t)
-			     (set 'indent-tabs-mode nil)))
-(add-hook 'js2-mode-hook (lambda () 
-			    (interactive) (column-marker-1 80)))
+			    (interactive) (column-marker-1 80)
+			    (local-set-key (kbd "RET") 'reindent-then-newline-and-indent)
+			    (set 'js2-cleanup-whitespace t)
+			    (set 'js2-basic-offset 2)
+			    (set 'js2-user-font-lock-faces t)
+			    (set 'indent-tabs-mode nil)))
 
 ; Auto-indent with a yank
 (dolist (command '(yank yank-pop))
   (eval `(defadvice ,command (after indent-region activate)
 	   (and (not current-prefix-arg)
 		(member major-mode '(emacs-lisp-mode lisp-mode
-						     clojure-mode    scheme-mode
-						     haskell-mode    ruby-mode
-						     rspec-mode      python-mode
-						     c-mode          c++-mode
-						     objc-mode       latex-mode
-						     plain-tex-mode  php-mode
-						     css-mode        js-mode))
+				     clojure-mode    scheme-mode
+				     haskell-mode    ruby-mode
+				     rspec-mode      python-mode
+				     c-mode          c++-mode
+				     objc-mode       latex-mode
+				     plain-tex-mode  php-mode
+				     css-mode        js2-mode
+				     go-mode))
 		(let ((mark-even-if-inactive transient-mark-mode))
 		  (indent-region (region-beginning) (region-end) nil))))))
 
@@ -121,18 +128,15 @@
 ; Highlight matching bracket
 (show-paren-mode 1)
 
-; Dot file mode
-(load-file "~/.emacs.d/graphviz-dot-mode.el")
-
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(inhibit-startup-screen t))
 (custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  )

@@ -25,6 +25,10 @@
 ; Column Marker
 (require 'column-marker)
 
+; Fill mode
+(setq fill-column 80)
+(setq-default auto-fill-function 'do-auto-fill)
+
 ; Go
 (require 'go-mode-load)
 (add-hook 'go-mode-hook '(lambda ()

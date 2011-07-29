@@ -25,6 +25,15 @@
 ; Column Marker
 (require 'column-marker)
 
+; Standard indent size
+(setq standard-indent 2)
+
+; Make scrolling easier
+(setq scroll-step 1)
+
+; We use versioning. Backup files are not needed.
+(setq make-backup-files nil)
+
 ; Fill mode
 (setq fill-column 80)
 (setq-default auto-fill-function 'do-auto-fill)

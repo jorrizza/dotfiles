@@ -55,7 +55,7 @@
 (require 'go-mode-load)
 (add-hook 'go-mode-hook '(lambda ()
                            (set 'tab-width 2)
-			   (set 'indent-tabs-mode t)
+                           (set 'indent-tabs-mode t)
                            (interactive) (column-marker-1 80)
                            (local-set-key (kbd "RET") 'reindent-then-newline-and-indent)))
 

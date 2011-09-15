@@ -2,6 +2,7 @@
 ; GNU Emacs 23.2.1 (Debian 23.2+1-2)
 
 (add-to-list 'load-path "~/.emacs.d/")
+(add-to-list 'load-path "~/.emacs.d/nyan-mode/")
 (add-to-list 'load-path "~/go/misc/emacs/" t)
 
 ; We don't need these
@@ -24,6 +25,9 @@
 
 ; Column Marker
 (require 'column-marker)
+
+; Nyan Cat!
+(require 'nyan-mode)
 
 ; Standard indent size
 (setq standard-indent 2)

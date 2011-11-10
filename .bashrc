@@ -100,4 +100,3 @@ fi
 
 [[ ! -d "$HOME/encfs/.ssh" ]] && encfs ~/.encfs ~/encfs
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function

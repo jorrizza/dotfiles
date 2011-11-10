@@ -10,6 +10,7 @@ meld.priority = 1
 hgext.convert=
 hgext.bookmarks =
 hggit = ~/src/hg-git/hggit
+color =
 
 [trusted]
 users = bjorn

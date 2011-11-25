@@ -43,3 +43,5 @@ x-terminal-emulator*metaSendsEscape:		true
 ! White
 *color7:  #D3D7CF
 *color15: #EEEEEC
+
+XLock.mode: gears

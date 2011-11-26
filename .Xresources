@@ -1,9 +1,11 @@
+! X font rendering settings
 Xft.dpi:	96
 Xft.antialias: 	1
 Xft.hinting:	1
 Xft.hintstyle:	hintfull
 Xft.rgba:	rgb
 
+! XFCE Terminal ignores this, but it's nice to keep around.
 x-terminal-emulator*font:			xft:Terminus-8
 x-terminal-emulator*borderLess:			false
 x-terminal-emulator*externalBorder:		0
@@ -44,4 +46,5 @@ x-terminal-emulator*metaSendsEscape:		true
 *color7:  #D3D7CF
 *color15: #EEEEEC
 
+! Default screen saver
 XLock.mode: gears

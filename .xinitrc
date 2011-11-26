@@ -1,3 +1,6 @@
+# X resource database
+xrdb ~/.Xresources
+
 # Compositing manager.
 #xcompmgr -c -C &
 
@@ -11,8 +14,11 @@ for dev in `xinput list |grep pointer |grep TrackPoint | awk -F'id=' '{ print $2
   xinput set-prop $dev "Evdev Wheel Emulation Axes" 6 7 4 5 &
 done
 
-# Disable the damn touch screen.
-xinput set-prop "N-trig DuoSense" "Device Enabled" 0 &
+# Disable the damn touch screen and touch pad.
+xinput set-prop "N-Trig Touchscreen" "Device Enabled" 0 &
+xinput set-prop "N-Trig Pen" "Device Enabled" 0 &
+xinput set-prop "N-Trig MultiTouch" "Device Enabled" 0 &
+xinput set-prop "SynPS/2 Synaptics TouchPad" "Device Enabled" 0 &
 
 # Clean up slow downers.
 rm -f ~/.recently-used.xbel

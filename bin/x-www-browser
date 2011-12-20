@@ -1,3 +1,3 @@
 #!/bin/sh
 # Quick fix for flash sound
-LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libc/memcpy-preload.so /usr/bin/x-www-browser
+LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libc/memcpy-preload.so /usr/bin/${0##*/}

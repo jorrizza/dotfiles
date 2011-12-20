@@ -2,7 +2,7 @@
 xrdb ~/.Xresources
 
 # Audio server.
-pulseaudio &
+pulseaudio --start &
 
 # Compositing manager.
 #xcompmgr -c -C &

@@ -1,5 +1,5 @@
 ; .emacs of jorrizza@jrrzz.net
-; GNU Emacs 23.2.1 (Debian 23.2+1-2)
+; GNU Emacs 23.3 (Debian 23.3+1-4)
 
 (add-to-list 'load-path "~/.emacs.d/")
 (add-to-list 'load-path "~/.emacs.d/nyan-mode/")
@@ -143,6 +143,8 @@
 (add-to-list 'auto-mode-alist '("Rakefile" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.gemspec$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

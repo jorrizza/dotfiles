@@ -11,6 +11,7 @@ hgext.convert=
 hgext.bookmarks =
 hggit = ~/src/hg-git/hggit
 color =
+hgk = 
 
 [trusted]
 users = bjorn

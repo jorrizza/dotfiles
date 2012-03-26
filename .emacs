@@ -137,6 +137,9 @@
                 (let ((mark-even-if-inactive transient-mark-mode))
                   (indent-region (region-beginning) (region-end) nil))))))
 
+; Remove trailing white space
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
 ; Extra file associations
 (add-to-list 'auto-mode-alist '("\\.erb$" . html-mode))
 (add-to-list 'auto-mode-alist '("\\.erubis$" . html-mode))

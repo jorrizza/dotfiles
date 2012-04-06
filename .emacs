@@ -39,7 +39,7 @@
 (setq make-backup-files nil)
 
 ; Fill mode
-(setq-default auto-fill-function 'do-auto-fill)
+;(setq-default auto-fill-function 'do-auto-fill)
 (setq fill-column 80)
 
 ; Damn you tabs!

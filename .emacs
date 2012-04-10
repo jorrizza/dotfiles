@@ -3,6 +3,7 @@
 
 (add-to-list 'load-path "~/.emacs.d/")
 (add-to-list 'load-path "~/.emacs.d/nyan-mode/")
+(add-to-list 'load-path "~/.emacs.d/less-css-mode/")
 (add-to-list 'load-path "~/go/misc/emacs/" t)
 
 ; We don't need these
@@ -19,28 +20,27 @@
      (color-theme-initialize)
      (color-theme-comidia)))
 
-; Transparency is just cool, but my composite manager is b0rken
-;(set-frame-parameter (selected-frame) 'alpha '(85 50))
-;(add-to-list 'default-frame-alist '(alpha 85 50))
-
 ; Column Marker
 (require 'column-marker)
 
+; Smooth scrolling
+(require 'smooth-scroll)
+(smooth-scroll-mode t)
+(setq scroll-step 1)
+
 ; Nyan Cat!
 (require 'nyan-mode)
+(nyan-mode t)
 
 ; Standard indent size
-(setq standard-indent 2)
-
-; Make scrolling easier
-(setq scroll-step 1)
+(setq-default standard-indent 2)
+(setq-default c-basic-offset 2)
 
 ; We use versioning. Backup files are not needed.
 (setq make-backup-files nil)
 
 ; Fill mode
-;(setq-default auto-fill-function 'do-auto-fill)
-(setq fill-column 80)
+(setq-default fill-column 80)
 
 ; Damn you tabs!
 (setq-default indent-tabs-mode nil)
@@ -60,7 +60,6 @@
 (add-hook 'go-mode-hook '(lambda ()
                            (set 'tab-width 2)
                            (set 'indent-tabs-mode t)
-                           (interactive) (column-marker-1 80)
                            (local-set-key (kbd "RET") 'reindent-then-newline-and-indent)))
 
 ; C
@@ -77,28 +76,15 @@
 (add-hook 'yaml-mode-hook '(lambda ()
                              (local-set-key (kbd "RET") 'reindent-then-newline-and-indent)))
 
-; PHP same as ruby, but take care of the braindeadness in indenting
-(add-hook 'php-mode-hook '(lambda ()
-                            (local-set-key (kbd "RET") 'reindent-then-newline-and-indent)
-                            (c-set-style "my-php-style")
-                            (c-set-offset 'case-label '+)
-                            (c-set-offset 'arglist-intro '+)
-                            (c-set-offset 'arglist-cont-nonempty 'c-lineup-math)
-                            (set 'tab-width 2)
-                            (set 'c-basic-offset 2)))
-(defconst my-php-style
-  '((c-offsets-alist . (
-                        (arglist-close . c-lineup-close-paren)
-                        )))
-  "Fix the damn PHP-Mode indention"
-  )
-(c-add-style "my-php-style" my-php-style)
-
 ; CSS
 (add-hook 'css-mode-hook '(lambda ()
+                            (local-set-key (kbd "RET") 'reindent-then-newline-and-indent)
+                            (setq 'css-indent-offset 2)))
+
+; LESS
+(require 'less-css-mode)
+(add-hook 'less-css-mode-hook '(lambda ()
                             (local-set-key (kbd "RET") 'reindent-then-newline-and-indent)))
-(setq cssm-indent-function #'cssm-c-style-indenter)
-(setq cssm-indent-level 2)
 
 ; HTML
 (add-hook 'html-mode-hook '(lambda ()

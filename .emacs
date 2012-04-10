@@ -79,7 +79,7 @@
 ; CSS
 (add-hook 'css-mode-hook '(lambda ()
                             (local-set-key (kbd "RET") 'reindent-then-newline-and-indent)
-                            (setq 'css-indent-offset 2)))
+                            (set 'css-indent-offset 2)))
 
 ; LESS
 (require 'less-css-mode)

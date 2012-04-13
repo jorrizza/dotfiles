@@ -119,7 +119,8 @@
                                      objc-mode       latex-mode
                                      plain-tex-mode  php-mode
                                      css-mode        js2-mode
-                                     go-mode         html-mode))
+                                     go-mode         html-mode
+                                     less-css-mode))
                 (let ((mark-even-if-inactive transient-mark-mode))
                   (indent-region (region-beginning) (region-end) nil))))))
 

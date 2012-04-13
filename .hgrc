@@ -12,6 +12,7 @@ hgext.bookmarks =
 hggit = ~/src/hg-git/hggit
 color =
 hgk = 
+churn =
 
 [trusted]
 users = bjorn

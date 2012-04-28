@@ -4,7 +4,6 @@
 (add-to-list 'load-path "~/.emacs.d/")
 (add-to-list 'load-path "~/.emacs.d/nyan-mode/")
 (add-to-list 'load-path "~/.emacs.d/less-css-mode/")
-(add-to-list 'load-path "~/go/misc/emacs/" t)
 
 ; We don't need these
 (toggle-scroll-bar -1)
@@ -56,7 +55,6 @@
 (show-paren-mode 1)
 
 ; Go
-(require 'go-mode-load)
 (add-hook 'go-mode-hook '(lambda ()
                            (set 'tab-width 2)
                            (set 'indent-tabs-mode t)

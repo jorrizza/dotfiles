@@ -22,8 +22,5 @@ if [ -d "$HOME/bin" ] ; then
 fi
 
 # Go
-GOROOT=$HOME/go
-if [ -d "$GOROOT/bin" ] ; then
-    PATH="$GOROOT/bin:$PATH"
-fi
+GOPATH=$HOME/go
 

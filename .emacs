@@ -1,5 +1,5 @@
 ; .emacs of jorrizza@jrrzz.net
-; GNU Emacs 23.3 (Debian 23.3+1-4)
+; GNU Emacs 24.1.1
 
 (add-to-list 'load-path "~/.emacs.d/")
 (add-to-list 'load-path "~/.emacs.d/nyan-mode/")

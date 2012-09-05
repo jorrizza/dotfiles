@@ -54,6 +54,10 @@
 ; Highlight matching bracket
 (show-paren-mode 1)
 
+;; Highlight current line
+(global-hl-line-mode 1)
+(set-face-background 'hl-line "#033")
+
 ; Go
 (add-hook 'go-mode-hook '(lambda ()
                            (set 'tab-width 2)

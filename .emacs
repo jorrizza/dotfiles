@@ -132,6 +132,13 @@
 ; Remove trailing white space
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+; DHH
+(defun this-is-nasty ()
+  (interactive)
+  (start-process-shell-command "dhh-player" "dhh" "mplayer" "~/.emacs.d/dhh_nasty.mp3"))
+(global-set-key (kbd "C-c d h h")
+                'this-is-nasty)
+
 ; Extra file associations
 (add-to-list 'auto-mode-alist '("\\.erb$" . html-mode))
 (add-to-list 'auto-mode-alist '("\\.erubis$" . html-mode))

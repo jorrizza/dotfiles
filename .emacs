@@ -138,6 +138,12 @@
   (start-process-shell-command "dhh-player" "dhh" "mplayer" "~/.emacs.d/dhh_nasty.mp3"))
 (global-set-key (kbd "C-c d h h")
                 'this-is-nasty)
+; Sjongejonge
+(defun sjongejonge ()
+  (interactive)
+  (start-process-shell-command "sjo-player" "sjo" "mplayer" "~/.emacs.d/sjongejonge.mp3"))
+(global-set-key (kbd "C-c s j o")
+                'sjongejonge)
 
 ; Extra file associations
 (add-to-list 'auto-mode-alist '("\\.erb$" . html-mode))

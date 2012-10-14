@@ -125,7 +125,7 @@ load-module module-console-kit
 load-module module-position-event-sounds
 
 ### Cork music streams when a phone stream is active
-load-module module-cork-music-on-phone
+load-module module-role-cork
 
 ### Modules to allow autoloading of filters (such as echo cancellation)
 ### on demand. module-filter-heuristics tries to determine what filters

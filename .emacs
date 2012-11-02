@@ -72,6 +72,10 @@
                           (interactive) (column-marker-1 80)
                           (local-set-key (kbd "RET") 'reindent-then-newline-and-indent)))
 
+; C++
+(add-hook 'c++-mode-hook '(lambda ()
+                          (interactive) (column-marker-1 80)
+                          (local-set-key (kbd "RET") 'reindent-then-newline-and-indent)))
 ; Ruby
 (add-hook 'ruby-mode-hook '(lambda ()
                              (interactive) (column-marker-1 80)
@@ -153,6 +157,7 @@
 (add-to-list 'auto-mode-alist '("\\.gemspec$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.nut$" . c++-mode))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

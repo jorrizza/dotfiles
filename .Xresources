@@ -5,7 +5,7 @@ Xft.hinting:	1
 Xft.hintstyle:	hintfull
 Xft.rgba:	rgb
 
-! XFCE Terminal ignores this, but it's nice to keep around.
+! XFCE Terminal ignores this, but it is nice to keep around.
 x-terminal-emulator*font:			xft:Terminus-8
 x-terminal-emulator*borderLess:			false
 x-terminal-emulator*externalBorder:		0

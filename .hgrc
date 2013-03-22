@@ -13,6 +13,7 @@ hggit = ~/src/hg-git/hggit
 color =
 hgk = 
 churn =
+graphlog =
 
 [trusted]
 users = bjorn

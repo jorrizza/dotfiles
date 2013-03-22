@@ -1,8 +1,7 @@
 ; .emacs of jorrizza@jrrzz.net
-; GNU Emacs 24.1.1
+; GNU Emacs 24.2+1-2
 
 (add-to-list 'load-path "~/.emacs.d/")
-(add-to-list 'load-path "~/.emacs.d/nyan-mode/")
 (add-to-list 'load-path "~/.emacs.d/less-css-mode/")
 
 ; We don't need these
@@ -13,11 +12,7 @@
 (set-default-font "Terminus 8")
 
 ; Nice colors even more FTW
-(require 'color-theme)
-(eval-after-load "color-theme"
-  '(progn
-     (color-theme-initialize)
-     (color-theme-comidia)))
+(load-theme 'misterioso t)
 
 ; Column Marker
 (require 'column-marker)
@@ -26,10 +21,6 @@
 (require 'smooth-scroll)
 (smooth-scroll-mode t)
 (setq scroll-step 1)
-
-; Nyan Cat!
-(require 'nyan-mode)
-(nyan-mode t)
 
 ; Standard indent size
 (setq-default standard-indent 2)

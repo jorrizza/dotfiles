@@ -24,4 +24,5 @@ CommandUpdateRecords=FALSE
 ShortcutsNoMnemonics=TRUE
 ShortcutsNoMenukey=TRUE
 FontAntiAlias=FALSE
+BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
 

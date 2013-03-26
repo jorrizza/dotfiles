@@ -46,8 +46,8 @@
 (show-paren-mode 1)
 
 ; Highlight current line
-(global-hl-line-mode 1)
-(set-face-background 'hl-line "#033")
+; (global-hl-line-mode 1)
+; (set-face-background 'hl-line "#033")
 
 ; Make M-arrow work for window switching
 (windmove-default-keybindings 'meta)

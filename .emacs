@@ -127,6 +127,14 @@
 ; Remove trailing white space
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+; Support for ctags
+(defun create-tags (dir-name)
+  "Create tags file."
+  (interactive "DDirectory: ")
+  (shell-command
+   (format "%s -f %s/TAGS -e -R %s" "ctags" dir-name (directory-file-name dir-name)))
+  )
+
 ; DHH
 (defun this-is-nasty ()
   (interactive)
@@ -146,6 +154,7 @@
 (add-to-list 'auto-mode-alist '("Rakefile" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.gemspec$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.prawn$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.nut$" . c++-mode))

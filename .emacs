@@ -4,6 +4,11 @@
 (add-to-list 'load-path "~/.emacs.d/")
 (add-to-list 'load-path "~/.emacs.d/less-css-mode/")
 
+; Requires
+(require 'column-marker)
+(require 'less-css-mode)
+(require 'smooth-scroll)
+
 ; We don't need these
 (toggle-scroll-bar -1)
 (tool-bar-mode -1)
@@ -14,11 +19,7 @@
 ; Nice colors even more FTW
 (load-theme 'misterioso t)
 
-; Column Marker
-(require 'column-marker)
-
 ; Smooth scrolling
-(require 'smooth-scroll)
 (smooth-scroll-mode t)
 (setq scroll-step 1)
 
@@ -52,57 +53,33 @@
 ; Make M-arrow work for window switching
 (windmove-default-keybindings 'meta)
 
+; Electric features that rock
+(electric-pair-mode +1)
+(electric-indent-mode +1)
+
 ; Go
 (add-hook 'go-mode-hook '(lambda ()
                            (set 'tab-width 2)
-                           (set 'indent-tabs-mode t)
-                           (local-set-key (kbd "RET") 'reindent-then-newline-and-indent)))
+                           (set 'indent-tabs-mode t)))
 
 ; C
 (add-hook 'c-mode-hook '(lambda ()
-                          (interactive) (column-marker-1 80)
-                          (local-set-key (kbd "RET") 'reindent-then-newline-and-indent)))
+                          (interactive) (column-marker-1 80)))
 
 ; C++
 (add-hook 'c++-mode-hook '(lambda ()
-                          (interactive) (column-marker-1 80)
-                          (local-set-key (kbd "RET") 'reindent-then-newline-and-indent)))
+                          (interactive) (column-marker-1 80)))
 ; Ruby
 (add-hook 'ruby-mode-hook '(lambda ()
-                             (interactive) (column-marker-1 80)
-                             (local-set-key (kbd "RET") 'reindent-then-newline-and-indent)))
-
-; YAML
-(add-hook 'yaml-mode-hook '(lambda ()
-                             (local-set-key (kbd "RET") 'reindent-then-newline-and-indent)))
+                             (interactive) (column-marker-1 80)))
 
 ; CSS
 (add-hook 'css-mode-hook '(lambda ()
-                            (local-set-key (kbd "RET") 'reindent-then-newline-and-indent)
                             (set 'css-indent-offset 2)))
-
-; LESS
-(require 'less-css-mode)
-(add-hook 'less-css-mode-hook '(lambda ()
-                            (local-set-key (kbd "RET") 'reindent-then-newline-and-indent)))
-
-; HTML
-(add-hook 'html-mode-hook '(lambda ()
-                             (local-set-key (kbd "RET") 'reindent-then-newline-and-indent)))
-
-; LaTeX
-(add-hook 'latex-mode-hook '(lambda ()
-                              (interactive) (column-marker-1 80)
-                              (local-set-key (kbd "RET") 'reindent-then-newline-and-indent)))
-
-; DOT
-(add-hook 'graphviz-dot-mode-hook '(lambda ()
-                                     (local-set-key (kbd "RET") 'reindent-then-newline-and-indent)))
 
 ; JavaScript
 (add-hook 'js2-mode-hook '(lambda ()
                             (interactive) (column-marker-1 80)
-                            (local-set-key (kbd "RET") 'reindent-then-newline-and-indent)
                             (set 'js2-cleanup-whitespace t)
                             (set 'js2-basic-offset 2)
                             (set 'js2-user-font-lock-faces t)))

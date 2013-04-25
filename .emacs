@@ -1,10 +1,11 @@
 ; .emacs of jorrizza@jrrzz.net
-; GNU Emacs 24.2+1-2
+; GNU Emacs 24.3+1-1
 
 (add-to-list 'load-path "~/.emacs.d/")
 (add-to-list 'load-path "~/.emacs.d/less-css-mode/")
 
 ; Requires
+(require 'ido)
 (require 'column-marker)
 (require 'less-css-mode)
 (require 'smooth-scroll)
@@ -56,6 +57,9 @@
 ; Electric features that rock
 (electric-pair-mode +1)
 (electric-indent-mode +1)
+
+; ido-mode
+(ido-mode t)
 
 ; Go
 (add-hook 'go-mode-hook '(lambda ()

@@ -9,6 +9,7 @@
 (require 'ido)
 (require 'column-marker)
 (require 'less-css-mode)
+(require 'js2-mode)
 (require 'smooth-scroll)
 
 ;; We don't need these

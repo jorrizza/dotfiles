@@ -3,6 +3,7 @@
 
 (add-to-list 'load-path "~/.emacs.d/")
 (add-to-list 'load-path "~/.emacs.d/less-css-mode/")
+(add-to-list 'load-path "~/.emacs.d/js2-mode/")
 
 ;; Requires
 (require 'ido)

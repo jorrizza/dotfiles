@@ -2,15 +2,22 @@
 ;; GNU Emacs 24.3+1-1
 
 (add-to-list 'load-path "~/.emacs.d/")
-(add-to-list 'load-path "~/.emacs.d/less-css-mode/")
-(add-to-list 'load-path "~/.emacs.d/js2-mode/")
 
-;; Requires
-(require 'ido)
-(require 'column-marker)
-(require 'less-css-mode)
-(require 'js2-mode)
-(require 'smooth-scroll)
+;; Package management
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                         ("marmalade" . "http://marmalade-repo.org/packages/")
+                         ("melpa" . "http://melpa.milkbox.net/packages/")
+                         ("org" . "http://orgmode.org/elpa/")))
+(package-initialize)
+(when (not package-archive-contents)
+  (package-refresh-contents))
+(defvar my-packages '(column-marker go-mode js2-mode
+  less-css-mode lua-mode org smooth-scrolling yaml-mode
+  graphviz-dot-mode)
+  "Nice packages I depend upon.")
+(dolist (p my-packages)
+  (when (not (package-installed-p p))
+    (package-install p)))
 
 ;; We don't need these
 (toggle-scroll-bar -1)
@@ -21,10 +28,6 @@
 
 ;; Nice colors even more FTW
 (load-theme 'misterioso t)
-
-;; Smooth scrolling
-(smooth-scroll-mode t)
-(setq scroll-step 1)
 
 ;; Standard indent size
 (setq-default standard-indent 2)
@@ -62,6 +65,8 @@
 
 ;; ido-mode
 (ido-mode t)
+
+
 
 ;; Go
 (add-hook 'go-mode-hook '(lambda ()
@@ -142,6 +147,8 @@
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.nut$" . c++-mode))
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

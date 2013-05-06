@@ -80,6 +80,7 @@
 ;; C++
 (add-hook 'c++-mode-hook '(lambda ()
                           (interactive) (column-marker-1 80)))
+
 ;; Ruby
 (add-hook 'ruby-mode-hook '(lambda ()
                              (interactive) (column-marker-1 80)))

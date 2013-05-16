@@ -1,6 +1,10 @@
 # X resource database
 xrdb ~/.Xresources
 
+# X settings
+xset s off
+xset -dpms
+
 # Audio server.
 pulseaudio --start &
 

@@ -13,7 +13,7 @@
   (package-refresh-contents))
 (defvar my-packages '(column-marker go-mode js2-mode
   less-css-mode lua-mode org smooth-scrolling yaml-mode
-  graphviz-dot-mode)
+  graphviz-dot-mode tramp)
   "Nice packages I depend upon.")
 (dolist (p my-packages)
   (when (not (package-installed-p p))
@@ -66,7 +66,8 @@
 ;; ido-mode
 (ido-mode t)
 
-
+;; Tramp
+(setq tramp-default-method "ssh")
 
 ;; Go
 (add-hook 'go-mode-hook '(lambda ()

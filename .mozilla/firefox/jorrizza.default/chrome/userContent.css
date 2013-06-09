@@ -1,4 +1,4 @@
-input {
-  color: #000000;
-  background-color: #FFFFFF;
+input, textarea {
+  color: #121212;
+  background-color: #EEEEEE;
 }

@@ -98,5 +98,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+export GOPATH="$HOME/go"
+
 [[ ! -d "$HOME/encfs/.ssh" ]] && encfs ~/.encfs ~/encfs
 

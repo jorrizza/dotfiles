@@ -13,7 +13,7 @@
   (package-refresh-contents))
 (defvar my-packages '(column-marker go-mode js2-mode
   less-css-mode lua-mode org smooth-scrolling yaml-mode
-  graphviz-dot-mode tramp slim-mode)
+  graphviz-dot-mode tramp haml-mode)
   "Nice packages I depend upon.")
 (dolist (p my-packages)
   (when (not (package-installed-p p))

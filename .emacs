@@ -23,6 +23,9 @@
 (toggle-scroll-bar -1)
 (tool-bar-mode -1)
 
+;; Unique double filenames
+(require 'uniquify)
+
 ;; Nice font FTW
 (set-default-font "Terminus 8")
 

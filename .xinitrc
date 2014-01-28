@@ -36,5 +36,8 @@ rm -f ~/.local/share/recently-used
 # Fix the display
 arandr &
 
+# Fix stupid X clients (from suckless-tools)
+wmname LG3D &
+
 # Awesomeness.
 exec awesome

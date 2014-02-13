@@ -13,14 +13,37 @@ require("debian.menu")
 -- Vicious FTW
 require("vicious")
 
+-- {{{ Error handling
+-- Check if awesome encountered an error during startup and fell back to
+-- another config (This code will only ever execute for the fallback config)
+if awesome.startup_errors then
+    naughty.notify({ preset = naughty.config.presets.critical,
+                     title = "Oops, there were errors during startup!",
+                     text = awesome.startup_errors })
+end
+
+-- Handle runtime errors after startup
+do
+    local in_error = false
+    awesome.add_signal("debug::error", function (err)
+        -- Make sure we don't go into an endless error loop
+        if in_error then return end
+        in_error = true
+
+        naughty.notify({ preset = naughty.config.presets.critical,
+                         title = "Oops, an error happened!",
+                         text = err })
+        in_error = false
+    end)
+end
+-- }}}
+
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
 beautiful.init(awful.util.getdir("config") .. "/theme.lua")
 
--- This is used later as the default terminal and editor to run.
+-- This is used later as the default terminal to run.
 terminal = "x-terminal-emulator"
-editor = os.getenv("EDITOR") or "editor"
-editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -36,13 +59,6 @@ layouts = {
    awful.layout.suit.tile.left,
    awful.layout.suit.tile.bottom,
    awful.layout.suit.tile.top
-   -- awful.layout.suit.fair,
-   -- awful.layout.suit.fair.horizontal,
-   -- awful.layout.suit.spiral,
-   -- awful.layout.suit.spiral.dwindle,
-   -- awful.layout.suit.max,
-   -- awful.layout.suit.max.fullscreen,
-   -- awful.layout.suit.magnifier
 }
 -- }}}
 
@@ -58,8 +74,6 @@ end
 -- {{{ Menu
 -- Create a laucher widget and a main menu
 myawesomemenu = {
-   { "manual", terminal .. " -e man awesome" },
-   { "edit config", editor_cmd .. " " .. awful.util.getdir("config") .. "/rc.lua" },
    { "restart", awesome.restart },
    { "quit", awesome.quit }
 }
@@ -79,9 +93,6 @@ mylauncher = awful.widget.launcher(
 -- }}}
 
 -- {{{ Wibox
--- Create a textclock widget
---mytextclock = awful.widget.textclock({ align = "right" })
-
 -- Create a systray
 mysystray = widget({ type = "systray" })
 

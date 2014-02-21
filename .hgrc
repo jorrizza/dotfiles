@@ -15,6 +15,3 @@ hgk =
 churn =
 graphlog =
 mq =
-
-[trusted]
-users = bjorn

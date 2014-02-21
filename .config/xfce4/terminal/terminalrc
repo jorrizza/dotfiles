@@ -1,4 +1,9 @@
 [Configuration]
+BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
+BackgroundDarkness=0.800000
+ColorPalette=#000000;#cc0000;#4e9a06;#c4a000;#3465a4;#75507b;#06989a;#d3d7cf;#555753;#ef2929;#8ae234;#fce94f;#739fcf;#ad7fa8;#34e2e2;#eeeeec
+CommandUpdateRecords=FALSE
+FontName=Terminus 8
 MiscAlwaysShowTabs=FALSE
 MiscBell=FALSE
 MiscBordersDefault=FALSE
@@ -8,21 +13,16 @@ MiscDefaultGeometry=80x24
 MiscInheritGeometry=FALSE
 MiscMenubarDefault=FALSE
 MiscMouseAutohide=FALSE
-MiscToolbarsDefault=FALSE
+MiscToolbarDefault=FALSE
 MiscConfirmClose=TRUE
 MiscCycleTabs=TRUE
 MiscTabCloseButtons=TRUE
 MiscTabCloseMiddleClick=TRUE
 MiscTabPosition=GTK_POS_TOP
 MiscHighlightUrls=TRUE
-TitleInitial=Terminaal
 ScrollingBar=TERMINAL_SCROLLBAR_NONE
 ScrollingLines=8192
-BackgroundDarkness=0.800000
-FontName=Terminus 8
-CommandUpdateRecords=FALSE
-ShortcutsNoMnemonics=TRUE
 ShortcutsNoMenukey=TRUE
-FontAntiAlias=FALSE
-BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
+ShortcutsNoMnemonics=TRUE
+TitleInitial=Terminaal
 

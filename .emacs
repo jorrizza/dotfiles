@@ -1,5 +1,5 @@
 ;; .emacs of jorrizza@jrrzz.net
-;; GNU Emacs 24.3+1-1
+;; GNU Emacs 24.3
 
 (add-to-list 'load-path "~/.emacs.d/")
 
@@ -13,7 +13,8 @@
   (package-refresh-contents))
 (defvar my-packages '(column-marker go-mode js2-mode
   less-css-mode lua-mode org smooth-scrolling yaml-mode
-  graphviz-dot-mode tramp haml-mode coffee-mode)
+  graphviz-dot-mode tramp haml-mode coffee-mode php-mode
+  markdown-mode)
   "Nice packages I depend upon.")
 (dolist (p my-packages)
   (when (not (package-installed-p p))

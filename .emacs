@@ -146,6 +146,12 @@
   (start-process-shell-command "sjo-player" "sjo" "mplayer" "~/.emacs.d/sjongejonge.mp3"))
 (global-set-key (kbd "C-c s j o")
                 'sjongejonge)
+;; Netjes
+(defun netjes ()
+  (interactive)
+  (start-process-shell-command "net-player" "net" "mplayer" "~/.emacs.d/netjes.mp3"))
+(global-set-key (kbd "C-c n e t")
+                'netjes)
 
 ;; Extra file associations
 (add-to-list 'auto-mode-alist '("\\.erb$" . html-mode))

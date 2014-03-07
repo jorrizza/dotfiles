@@ -137,21 +137,28 @@
 ;; DHH
 (defun this-is-nasty ()
   (interactive)
-  (start-process-shell-command "dhh-player" "dhh" "mplayer" "~/.emacs.d/dhh_nasty.mp3"))
+  (start-process-shell-command "dhh-player" "dhh" "mpv" "~/.emacs.d/dhh_nasty.mp3"))
 (global-set-key (kbd "C-c d h h")
                 'this-is-nasty)
 ;; Sjongejonge
 (defun sjongejonge ()
   (interactive)
-  (start-process-shell-command "sjo-player" "sjo" "mplayer" "~/.emacs.d/sjongejonge.mp3"))
+  (start-process-shell-command "sjo-player" "sjo" "mpv" "~/.emacs.d/sjongejonge.mp3"))
 (global-set-key (kbd "C-c s j o")
                 'sjongejonge)
 ;; Netjes
 (defun netjes ()
   (interactive)
-  (start-process-shell-command "net-player" "net" "mplayer" "~/.emacs.d/netjes.mp3"))
+  (start-process-shell-command "net-player" "net" "mpv" "~/.emacs.d/netjes.mp3"))
 (global-set-key (kbd "C-c n e t")
                 'netjes)
+
+;; Juist
+(defun juist ()
+  (interactive)
+  (start-process-shell-command "jui-player" "jui" "mpv" "~/.emacs.d/juist.mp3"))
+(global-set-key (kbd "C-c j u i")
+                'juist)
 
 ;; Extra file associations
 (add-to-list 'auto-mode-alist '("\\.erb$" . html-mode))

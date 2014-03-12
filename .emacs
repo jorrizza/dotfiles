@@ -23,6 +23,7 @@
 ;; We don't need these
 (toggle-scroll-bar -1)
 (tool-bar-mode -1)
+(menu-bar-mode -1)
 
 ;; Unique double filenames
 (require 'uniquify)
@@ -31,7 +32,7 @@
 (set-default-font "Terminus 8")
 
 ;; Nice colors even more FTW
-(load-theme 'misterioso t)
+(load-theme 'wombat t)
 
 ;; Standard indent size
 (setq-default standard-indent 2)

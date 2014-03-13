@@ -11,9 +11,6 @@ pulseaudio --start &
 # Compositing manager.
 #xcompmgr -c -C &
 
-# Background.
-awsetbg -l &
-
 # Clit scrolling and stuff.
 for dev in `xinput list |grep pointer |grep TrackPoint | awk -F'id=' '{ print $2 }' | awk '{ print $1 }'`; do
   xinput set-prop $dev "Evdev Wheel Emulation" 1 &
@@ -34,7 +31,7 @@ rm -f ~/.local/share/recently-used.xbel
 rm -f ~/.local/share/recently-used
 
 # Fix the display
-arandr &
+[[ -x .screenlayout/default.sh ]] && .screenlayout/default.sh
 
 # Fix stupid X clients (from suckless-tools)
 wmname LG3D &

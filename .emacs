@@ -14,7 +14,7 @@
 (defvar my-packages '(column-marker go-mode js2-mode
   less-css-mode lua-mode org smooth-scrolling yaml-mode
   graphviz-dot-mode tramp haml-mode coffee-mode php-mode
-  markdown-mode)
+  markdown-mode solarized-theme)
   "Nice packages I depend upon.")
 (dolist (p my-packages)
   (when (not (package-installed-p p))
@@ -32,7 +32,7 @@
 (set-default-font "Terminus 8")
 
 ;; Nice colors even more FTW
-(load-theme 'wombat t)
+(load-theme 'solarized-dark t)
 
 ;; Standard indent size
 (setq-default standard-indent 2)

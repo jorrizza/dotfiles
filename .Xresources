@@ -5,46 +5,59 @@ Xft.hinting:	1
 Xft.hintstyle:	hintfull
 Xft.rgba:	rgb
 
-! XFCE Terminal ignores this, but it is nice to keep around.
+! Terminal emulator settings (urxvt, uxterm, etc)
 x-terminal-emulator*font:			xft:Terminus-8
 x-terminal-emulator*borderLess:			false
 x-terminal-emulator*externalBorder:		0
 x-terminal-emulator*internalBorder:		2
 x-terminal-emulator*scrollBar:			false
 x-terminal-emulator*depth:			32
-x-terminal-emulator*background:			#000000
-x-terminal-emulator*foreground:			#D3D7CF
 x-terminal-emulator*saveLines:			1000
 x-terminal-emulator*urlLauncher:      		x-www-browser
 x-terminal-emulator*transparent:		true
 x-terminal-emulator*shading:			30
 x-terminal-emulator*metaSendsEscape:		true
 
-
-! Black
-*color0:  #2E3436
-*color8:  #555753
-! Red
-*color1:  #CC0000
-*color9:  #EF2929
-! Green
-*color2:  #4E9A06
-*color10: #8AE234
-! Yellow
-*color3:  #C4A000
-*color11: #FCE94F
-! Blue
-*color4:  #3465A4
-*color12: #729FCF
-! Purple
-*color5:  #75507B
-*color13: #AD7FA8
-! Cyan
-*color6:  #06989A
-*color14: #34E2E2
-! White
-*color7:  #D3D7CF
-*color15: #EEEEEC
+! Solarized colors
+#define S_yellow #b58900
+#define S_orange #cb4b16
+#define S_red #dc322f
+#define S_magenta #d33682
+#define S_violet #6c71c4
+#define S_blue #268bd2
+#define S_cyan #2aa198
+#define S_green #859900
+#define S_base03 #002b36
+#define S_base02 #073642
+#define S_base01 #586e75
+#define S_base00 #657b83
+#define S_base0 #839496
+#define S_base1 #93a1a1
+#define S_base2 #eee8d5
+#define S_base3 #fdf6e3
+*background: S_base03
+*foreground: S_base0
+*fading: 40
+*fadeColor: S_base03
+*cursorColor: S_base1
+*pointerColorBackground: S_base01
+*pointerColorForeground: S_base1
+*color0: S_base02
+*color1: S_red
+*color2: S_green
+*color3: S_yellow
+*color4: S_blue
+*color5: S_magenta
+*color6: S_cyan
+*color7: S_base2
+*color9: S_orange
+*color8: S_base03
+*color10: S_base01
+*color11: S_base00
+*color12: S_base0
+*color13: S_violet
+*color14: S_base1
+*color15: S_base3
 
 ! Default screen saver
 XLock.mode: gears

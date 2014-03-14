@@ -6,19 +6,14 @@ Xft.hintstyle:	hintfull
 Xft.rgba:	rgb
 
 ! Terminal emulator settings
-xterm*VT100.geometry:     80x25
-xterm*faceName:           Terminus:style=Regular:size=8
-xterm*dynamicColors:      true
-xterm*utf8:               2
-xterm*eightBitInput:      true
-xterm*saveLines:          65536
-xterm*scrollKey:          true
-xterm*scrollTtyOutput:    false
-xterm*scrollBar:          false
-xterm*rightScrollBar:     true
-xterm*jumpScroll:         true
-xterm*multiScroll:        true
-xterm*toolBar:            false
+URxvt*font:               xft:Terminus-8
+URxvt*borderLess:         false
+URxvt*externalBorder:     0
+URxvt*internalBorder:     2
+URxvt*scrollBar:          false
+URxvt*saveLines:          65536
+URxvt*urlLauncher:        x-www-browser
+URxvt*metaSendsEscape:    true
 
 ! Solarized colors
 #define S_yellow #b58900

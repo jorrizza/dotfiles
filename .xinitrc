@@ -31,7 +31,7 @@ rm -f ~/.local/share/recently-used.xbel
 rm -f ~/.local/share/recently-used
 
 # Fix the display
-[[ -x .screenlayout/default.sh ]] && .screenlayout/default.sh
+[[ -x ~/.screenlayout/default.sh ]] && ~/.screenlayout/default.sh
 
 # Fix stupid X clients (from suckless-tools)
 wmname LG3D &

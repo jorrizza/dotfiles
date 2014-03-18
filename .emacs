@@ -161,6 +161,13 @@
 (global-set-key (kbd "C-c j u i")
                 'juist)
 
+;; I love it once a plan comes together
+(defun hannibal ()
+  (interactive)
+  (start-process-shell-command "han-player" "han" "mpv" "~/.emacs.d/hannibal.mp3"))
+(global-set-key (kbd "C-c h a n")
+                'hannibal)
+
 ;; Extra file associations
 (add-to-list 'auto-mode-alist '("\\.erb$" . html-mode))
 (add-to-list 'auto-mode-alist '("\\.erubis$" . html-mode))

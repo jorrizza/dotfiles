@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+
+gem 'bundler', '>= 0'
+load Gem.bin_path('bundler', 'bundle', version)

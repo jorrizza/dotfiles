@@ -141,12 +141,14 @@
   (start-process-shell-command "dhh-player" "dhh" "mpv" "~/.emacs.d/dhh_nasty.mp3"))
 (global-set-key (kbd "C-c d h h")
                 'this-is-nasty)
+
 ;; Sjongejonge
 (defun sjongejonge ()
   (interactive)
   (start-process-shell-command "sjo-player" "sjo" "mpv" "~/.emacs.d/sjongejonge.mp3"))
 (global-set-key (kbd "C-c s j o")
                 'sjongejonge)
+
 ;; Netjes
 (defun netjes ()
   (interactive)
@@ -167,6 +169,13 @@
   (start-process-shell-command "han-player" "han" "mpv" "~/.emacs.d/hannibal.mp3"))
 (global-set-key (kbd "C-c h a n")
                 'hannibal)
+
+;; Zuilen fall from underneath it
+(defun zuilen ()
+  (interactive)
+  (start-process-shell-command "gin-player" "gin" "mpv" "~/.emacs.d/zuilen.mp3"))
+(global-set-key (kbd "C-c g i n")
+                'zuilen)
 
 ;; Extra file associations
 (add-to-list 'auto-mode-alist '("\\.erb$" . html-mode))

@@ -184,6 +184,20 @@
 (global-set-key (kbd "C-c r u t")
                 'mooi)
 
+;; 30 seconds of a clown laughing
+(defun hahaha ()
+  (interactive)
+  (start-process-shell-command "hah-player" "hah" "mpv" "~/.emacs.d/haha_long.mp3"))
+(global-set-key (kbd "C-c h a h")
+                'hahaha)
+
+;; Acrobat laughing
+(defun haha ()
+  (interactive)
+  (start-process-shell-command "heh-player" "heh" "mpv" "~/.emacs.d/haha_short.mp3"))
+(global-set-key (kbd "C-c h e h")
+                'haha)
+
 ;; Extra file associations
 (add-to-list 'auto-mode-alist '("\\.erb$" . html-mode))
 (add-to-list 'auto-mode-alist '("\\.erubis$" . html-mode))

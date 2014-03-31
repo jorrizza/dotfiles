@@ -177,6 +177,13 @@
 (global-set-key (kbd "C-c g i n")
                 'zuilen)
 
+;; Mister president says "nice"
+(defun mooi ()
+  (interactive)
+  (start-process-shell-command "rut-player" "rut" "mpv" "~/.emacs.d/mooi.mp3"))
+(global-set-key (kbd "C-c r u t")
+                'mooi)
+
 ;; Extra file associations
 (add-to-list 'auto-mode-alist '("\\.erb$" . html-mode))
 (add-to-list 'auto-mode-alist '("\\.erubis$" . html-mode))

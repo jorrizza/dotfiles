@@ -36,5 +36,8 @@ test -x ~/.screenlayout/default.sh && ~/.screenlayout/default.sh
 # Fix stupid X clients (from suckless-tools)
 wmname LG3D &
 
+# GPG
+eval $(gpg-agent --daemon --enable-ssh-support --disable-scdaemon)
+
 # Awesomeness.
 exec awesome

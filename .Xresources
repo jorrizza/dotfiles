@@ -1,9 +1,10 @@
 ! X font rendering settings
-Xft.dpi:	96
-Xft.antialias: 	1
-Xft.hinting:	1
-Xft.hintstyle:	hintfull
-Xft.rgba:	rgb
+Xft.autohint: 0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
 
 ! Terminal emulator settings
 URxvt*font:               xft:Terminus-8

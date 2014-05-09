@@ -132,71 +132,29 @@
   "Create tags file."
   (interactive "DDirectory: ")
   (shell-command
-   (format "%s -f %s/TAGS -e -R %s" "ctags" dir-name (directory-file-name dir-name)))
-  )
+   (format "%s -f %s/TAGS -e -R %s" "ctags" dir-name (directory-file-name dir-name))))
 
-;; DHH
-(defun this-is-nasty ()
-  (interactive)
-  (start-process-shell-command "dhh-player" "dhh" "mpv" "~/.emacs.d/dhh_nasty.mp3"))
-(global-set-key (kbd "C-c d h h")
-                'this-is-nasty)
-
-;; Sjongejonge
-(defun sjongejonge ()
-  (interactive)
-  (start-process-shell-command "sjo-player" "sjo" "mpv" "~/.emacs.d/sjongejonge.mp3"))
-(global-set-key (kbd "C-c s j o")
-                'sjongejonge)
-
-;; Netjes
-(defun netjes ()
-  (interactive)
-  (start-process-shell-command "net-player" "net" "mpv" "~/.emacs.d/netjes.mp3"))
-(global-set-key (kbd "C-c n e t")
-                'netjes)
-
-;; Juist
-(defun juist ()
-  (interactive)
-  (start-process-shell-command "jui-player" "jui" "mpv" "~/.emacs.d/juist.mp3"))
-(global-set-key (kbd "C-c j u i")
-                'juist)
-
-;; I love it once a plan comes together
-(defun hannibal ()
-  (interactive)
-  (start-process-shell-command "han-player" "han" "mpv" "~/.emacs.d/hannibal.mp3"))
-(global-set-key (kbd "C-c h a n")
-                'hannibal)
-
-;; Zuilen fall from underneath it
-(defun zuilen ()
-  (interactive)
-  (start-process-shell-command "gin-player" "gin" "mpv" "~/.emacs.d/zuilen.mp3"))
-(global-set-key (kbd "C-c g i n")
-                'zuilen)
-
-;; Mister president says "nice"
-(defun mooi ()
-  (interactive)
-  (start-process-shell-command "rut-player" "rut" "mpv" "~/.emacs.d/mooi.mp3"))
-(global-set-key (kbd "C-c r u t")
-                'mooi)
-
-;; 30 seconds of a clown laughing
-(defun hahaha ()
-  (interactive)
-  (start-process-shell-command "hah-player" "hah" "mpv" "~/.emacs.d/haha_long.mp3"))
-(global-set-key (kbd "C-c h a h")
-                'hahaha)
-
-;; Acrobat laughing
-(defun haha ()
-  (interactive)
-  (start-process-shell-command "heh-player" "heh" "mpv" "~/.emacs.d/haha_short.mp3"))
-(global-set-key (kbd "C-c h e h")
-                'haha)
+;; Emacs Sound Board
+(setq soundboard '(("d h h" "this-is-nasty")
+                   ("s j o" "sjongejonge")
+                   ("n e t" "netjes")
+                   ("j u i" "juist")
+                   ("h a n" "hannibal")
+                   ("g i n" "zuilen")
+                   ("r u t" "mooi")
+                   ("h a h" "hahaha")
+                   ("h e h" "haha")))
+(dolist (sound soundboard)
+  (defalias (intern (nth 1 sound))
+    `(lambda ()
+       ,(format "Play the %s sound" (nth 1 sound))
+       (interactive)
+       (start-process-shell-command ,(concat (nth 1 sound) "-player")
+                                    ,(nth 1 sound)
+                                    "mpv"
+                                    ,(format "~/.emacs.d/%s.mp3" (nth 1 sound)))))
+  (global-set-key (kbd (concat "C-c " (car sound)))
+                  (intern (nth 1 sound))))
 
 ;; Extra file associations
 (add-to-list 'auto-mode-alist '("\\.erb$" . html-mode))

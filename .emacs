@@ -96,6 +96,11 @@
 (add-hook 'ruby-mode-hook '(lambda ()
                              (interactive) (column-marker-1 80)))
 
+;; Python
+(add-hook 'python-mode-hook '(lambda ()
+                               (interactive) (column-marker-1 80)
+                               (set 'python-indent-offset 4)))
+
 ;; CSS
 (add-hook 'css-mode-hook '(lambda ()
                             (set 'css-indent-offset 2)))
@@ -152,6 +157,7 @@
        (start-process-shell-command ,(concat (nth 1 sound) "-player")
                                     ,(nth 1 sound)
                                     "mpv"
+                                    "--really-quiet"
                                     ,(format "~/.emacs.d/%s.mp3" (nth 1 sound)))))
   (global-set-key (kbd (concat "C-c " (car sound)))
                   (intern (nth 1 sound))))

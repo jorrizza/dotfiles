@@ -147,6 +147,7 @@
                    ("h a n" "hannibal")
                    ("g i n" "zuilen")
                    ("r u t" "mooi")
+                   ("g a y" "ha-gay")
                    ("h a h" "hahaha")
                    ("h e h" "haha")))
 (dolist (sound soundboard)

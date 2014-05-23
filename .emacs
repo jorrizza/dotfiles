@@ -68,6 +68,20 @@
 (electric-pair-mode +1)
 (electric-indent-mode +1)
 
+;; For indent based languages, disable electric indent
+(defun ignore-electric-indent (char)
+  "Ignore electric indent for some modes"
+  (if (member major-mode '(python-mode yaml-mode))
+      `no-indent'
+    nil))
+(add-hook 'electric-indent-functions 'ignore-electric-indent)
+
+;; Function to replace electric indent for indent based languages
+(defun set-newline-and-indent ()
+  "Map the return key with `newline-and-indent'"
+  (local-set-key (kbd "RET") 'newline-and-indent))
+
+
 ;; ido-mode
 (ido-mode t)
 
@@ -99,7 +113,12 @@
 ;; Python
 (add-hook 'python-mode-hook '(lambda ()
                                (interactive) (column-marker-1 80)
-                               (set 'python-indent-offset 4)))
+                               (set 'python-indent-offset 4)
+                               (set-newline-and-indent)))
+
+;; YAML
+(add-hook 'yaml-mode-hook '(lambda ()
+                             (set-newline-and-indent)))
 
 ;; CSS
 (add-hook 'css-mode-hook '(lambda ()

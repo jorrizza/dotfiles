@@ -14,7 +14,7 @@
 (defvar my-packages '(column-marker go-mode js2-mode
   less-css-mode lua-mode org smooth-scrolling yaml-mode
   graphviz-dot-mode tramp haml-mode coffee-mode php-mode
-  markdown-mode solarized-theme ag)
+  markdown-mode scss-mode solarized-theme ag)
   "Nice packages I depend upon.")
 (dolist (p my-packages)
   (when (not (package-installed-p p))
@@ -124,6 +124,10 @@
 (add-hook 'css-mode-hook '(lambda ()
                             (set 'css-indent-offset 2)))
 
+;; SCSS
+(add-hook 'scss-mode-hook '(lambda ()
+                             (set 'scss-compile-at-save nil)))
+
 ;; JavaScript
 (add-hook 'js2-mode-hook '(lambda ()
                             (interactive) (column-marker-1 80)
@@ -144,7 +148,7 @@
                                      plain-tex-mode  php-mode
                                      css-mode        js2-mode
                                      go-mode         html-mode
-                                     less-css-mode))
+                                     less-css-mode   scss-mode))
                 (let ((mark-even-if-inactive transient-mark-mode))
                   (indent-region (region-beginning) (region-end) nil))))))
 

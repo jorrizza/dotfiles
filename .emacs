@@ -171,6 +171,7 @@
                    ("g i n" "zuilen")
                    ("i k p" "is-kapot")
                    ("m k p" "maak-kapot")
+                   ("v u r" "vuurbal")
                    ("r u t" "mooi")
                    ("g a y" "ha-gay")
                    ("h a h" "hahaha")

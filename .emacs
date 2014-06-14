@@ -169,6 +169,8 @@
                    ("j u i" "juist")
                    ("h a n" "hannibal")
                    ("g i n" "zuilen")
+                   ("i k p" "is-kapot")
+                   ("m k p" "maak-kapot")
                    ("r u t" "mooi")
                    ("g a y" "ha-gay")
                    ("h a h" "hahaha")

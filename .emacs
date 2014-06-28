@@ -28,6 +28,9 @@
 ;; Unique double filenames
 (require 'uniquify)
 
+;; Set windows title
+(setq frame-title-format '("" "%b - Emacs " emacs-version))
+
 ;; Nice font FTW
 (set-default-font "Terminus 8")
 

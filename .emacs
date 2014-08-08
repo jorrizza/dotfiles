@@ -175,6 +175,7 @@
                    ("i k p" "is-kapot")
                    ("m k p" "maak-kapot")
                    ("f i n" "financieel-voordeel")
+                   ("w e g" "weg-kwijt")
                    ("v u r" "vuurbal")
                    ("r u t" "mooi")
                    ("g a y" "ha-gay")

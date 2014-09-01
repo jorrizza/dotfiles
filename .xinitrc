@@ -21,6 +21,9 @@ done
 # Disable the damn touch screen.
 xinput set-prop "SYNAPTICS Synaptics Large Touch Screen" "Device Enabled" 0 &
 
+# Touchpad daemon disables touchpad when typing
+syndaemon -k -i 2 &
+
 # Clean up slow downers.
 rm -f ~/.recently-used.xbel
 rm -f ~/.recently-used

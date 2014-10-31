@@ -1,7 +1,5 @@
 ;; .emacs of jorrizza@jrrzz.net
-;; GNU Emacs 24.3
-
-(add-to-list 'load-path "~/.emacs.d/")
+;; GNU Emacs 24.4
 
 ;; Package management
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")

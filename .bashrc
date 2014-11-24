@@ -73,6 +73,10 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+# lesspipe is a security risk
+# http://seclists.org/fulldisclosure/2014/Nov/74
+unset LESSOPEN LESSCLOSE
+
 export GOPATH="$HOME/go"
 
 [[ ! -d "$HOME/encfs/.ssh" ]] && encfs ~/.encfs ~/encfs

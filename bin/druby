@@ -7,7 +7,7 @@ declare -A rubies
 rubies["1.8.7"]="1.8"
 rubies["1.9.3"]="1.9.1"
 rubies["2.0.0"]="2.0"
-rubies["2.1.4"]="2.1"
+rubies["2.1.5"]="2.1"
 
 ruby_executable=$(basename "$0")
 ruby_version_file=""

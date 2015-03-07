@@ -78,5 +78,3 @@ fi
 unset LESSOPEN LESSCLOSE
 
 export GOPATH="$HOME/go"
-
-[[ ! -d "$HOME/encfs/.ssh" ]] && encfs ~/.encfs ~/encfs

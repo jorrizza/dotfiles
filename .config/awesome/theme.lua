@@ -10,7 +10,7 @@
 -- {{{ Main
 theme = {}
 theme.default_themes_path = "/usr/share/awesome/themes"
-theme.wallpaper_cmd = { "xsetroot -solid rgb:00/2b/36" }
+theme.wallpaper_cmd = "xsetroot -solid rgb:00/2b/36"
 theme.colors = {}
 theme.colors.base3   = "#002b36ff"
 theme.colors.base2   = "#073642ff"
@@ -121,5 +121,8 @@ theme.titlebar_maximized_button_focus_inactive  = theme.default_themes_path.."/z
 theme.titlebar_maximized_button_normal_inactive = theme.default_themes_path.."/zenburn/titlebar/maximized_normal_inactive.png"
 -- }}}
 -- }}}
+
+-- Theme wallpaper_cmd is no longer run. Do it ourselves.
+os.execute(theme.wallpaper_cmd)
 
 return theme

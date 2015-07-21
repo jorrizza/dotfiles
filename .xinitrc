@@ -42,5 +42,8 @@ eval $(gpg-agent --daemon --enable-ssh-support --disable-scdaemon)
 # Fat finger tab caps lock confusion eliminator. Especially when coding drunk.
 setxkbmap -option ctrl:nocaps
 
+# Faster urxvt
+urxvtd -q -f -o
+
 # Awesomeness.
 exec awesome

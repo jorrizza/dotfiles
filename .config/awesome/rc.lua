@@ -46,7 +46,7 @@ end
 beautiful.init(awful.util.getdir("config") .. "/theme.lua")
 
 -- This is used later as the default terminal to run.
-terminal = "x-terminal-emulator"
+terminal = "urxvtc"
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.

@@ -15,6 +15,7 @@ URxvt*scrollBar:          false
 URxvt*saveLines:          65536
 URxvt*urlLauncher:        x-www-browser
 URxvt*metaSendsEscape:    true
+URxvt.perl-ext:           default,matcher
 
 ! Solarized colors
 #define S_yellow        #b58900

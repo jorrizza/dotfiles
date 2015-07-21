@@ -232,6 +232,7 @@ GtkTreeMenu .menuitem *:prelight,
 	/* contextual menu insensitive */
     color: mix (@menu_fg_dark_color, @menu_bg_dark_color, 0.4);
     text-shadow: none;
+    background-color: transparent;
 }
 
 .menuitem.check,
@@ -408,4 +409,3 @@ GtkComboBox .menuitem.separator,
     border-color: shade(@button_border, 1.30);
     border-style: solid;
 }
-

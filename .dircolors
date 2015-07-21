@@ -61,6 +61,8 @@ TERM cons25
 TERM console
 TERM cygwin
 TERM dtterm
+TERM dvtm
+TERM dvtm-256color
 TERM Eterm
 TERM eterm-color
 TERM fbterm
@@ -85,9 +87,15 @@ TERM rxvt-unicode
 TERM rxvt-unicode256
 TERM rxvt-unicode-256color
 TERM screen
+TERM screen-16color
+TERM screen-16color-bce
+TERM screen-16color-s
+TERM screen-16color-bce-s
 TERM screen-256color
 TERM screen-256color-bce
 TERM screen-256color-s
+TERM screen-256color-bce-s
+TERM screen-256color-italic
 TERM screen-bce
 TERM screen-w
 TERM screen.linux
@@ -101,6 +109,7 @@ TERM xterm
 TERM xterm-new
 TERM xterm-16color
 TERM xterm-256color
+TERM xterm-256color-italic
 TERM xterm-88color
 TERM xterm-color
 TERM xterm-debian
@@ -248,6 +257,7 @@ EXEC 01;31  # Unix
 .p 32
 .pod 32
 .tex 32
+.go 32
 
 ### Multimedia formats
 
@@ -268,6 +278,7 @@ EXEC 01;31  # Unix
 .pdf 33
 .pgm 33
 .png 33
+.PNG 33
 .ppm 33
 .pps 33
 .ppsx 33
@@ -288,6 +299,7 @@ EXEC 01;31  # Unix
 .aac 33
 .au  33
 .flac 33
+.m4a 33
 .mid 33
 .midi 33
 .mka 33
@@ -312,6 +324,7 @@ EXEC 01;31  # Unix
 .m4v 33
 .mkv 33
 .mov 33
+.MOV 33
 .mp4 33
 .mp4v 33
 .mpeg 33
@@ -325,6 +338,7 @@ EXEC 01;31  # Unix
 .rmvb 33
 .swf 33
 .vob 33
+.webm 33
 .wmv 33
 
 ### Misc
@@ -443,3 +457,4 @@ EXEC 01;31  # Unix
 .3des 34
 .aes 34
 .enc 34
+.sqlite 34

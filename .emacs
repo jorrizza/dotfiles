@@ -138,8 +138,8 @@
                             (set 'js2-user-font-lock-faces t)))
 ;; Templates
 (add-hook 'web-mode-hook '(lambda ()
-                       (set 'web-mode-enable-current-element-highlight t)
-                       (set 'web-mode-enable-current-column-highlight t)))
+                            (set 'web-mode-enable-current-element-highlight t)
+                            (set 'web-mode-enable-current-column-highlight t)))
 
 ;; Auto-indent with a yank
 (dolist (command '(yank yank-pop))

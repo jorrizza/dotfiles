@@ -13,7 +13,7 @@
   less-css-mode lua-mode org smooth-scrolling yaml-mode
   graphviz-dot-mode tramp haml-mode coffee-mode php-mode
   markdown-mode scss-mode dockerfile-mode solarized-theme
-  ag)
+  ag web-mode)
   "Nice packages I depend upon.")
 (dolist (p my-packages)
   (when (not (package-installed-p p))
@@ -150,7 +150,8 @@
                                      plain-tex-mode  php-mode
                                      css-mode        js2-mode
                                      go-mode         html-mode
-                                     less-css-mode   scss-mode))
+                                     less-css-mode   scss-mode
+                                     web-mode))
                 (let ((mark-even-if-inactive transient-mark-mode))
                   (indent-region (region-beginning) (region-end) nil))))))
 
@@ -194,8 +195,9 @@
                   (intern (nth 1 sound))))
 
 ;; Extra file associations
-(add-to-list 'auto-mode-alist '("\\.erb$" . html-mode))
-(add-to-list 'auto-mode-alist '("\\.erubis$" . html-mode))
+(add-to-list 'auto-mode-alist '("\\.html?$" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.erb$" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.erubis$" . web-mode))
 (add-to-list 'auto-mode-alist '("Rakefile" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Gemfile" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))

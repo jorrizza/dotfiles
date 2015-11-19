@@ -3,4 +3,4 @@ alias la='ls -A'
 alias l='ls -CF'
 alias bx='bundle exec'
 alias webserver='python3 -m http.server'
-
+alias penguins='mpv http://207.198.114.241:1935/qlive/edinburghzoopenguintwo.stream/playlist.m3u8'

@@ -29,25 +29,25 @@ unset LESSOPEN LESSCLOSE
 
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
+    debian_chroot=":debian:$(cat /etc/debian_chroot)"
 fi
 
 # same for hg and git
 hg_branch() {
-    hg branch 2> /dev/null | awk '{ print "[hg:" $1 "]" }'
+    hg branch 2> /dev/null | awk '{ print ":hg:" $1 }'
 }
 git_branch() {
-    git rev-parse --abbrev-ref HEAD 2> /dev/null | awk '{ print "[git:" $1 "]" }'
+    git rev-parse --abbrev-ref HEAD 2> /dev/null | awk '{ print ":git:" $1 }'
 }
 
-ps1_prefix='${debian_chroot:+[$debian_chroot]}$(hg_branch)$(git_branch)'
+ps1_path_suffix='${debian_chroot}$(hg_branch)$(git_branch)'
 
-PS1="\[\033[32m\][\t]\[\033[00m\]\[\033[34m\]${ps1_prefix}\[\033[00m\] \u@\h: \[\033[34m\]\w\[\033[00m\]\n\$ "
+PS1="\[\033[32m\][\t]\[\033[00m\]\[\033[34m\]${ps1_prefix}\[\033[00m\] \u@\h: \[\033[34m\]\w$ps1_path_suffix\[\033[00m\]\n\$ "
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
-    PS1="\[\e]0;$ps1_prefix\u@\h: \w\a\]$PS1"
+    PS1="\[\e]0;\u@\h: \w$ps1_path_suffix\a\]$PS1"
     ;;
 *)
     ;;

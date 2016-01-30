@@ -141,6 +141,10 @@
                             (set 'web-mode-enable-current-element-highlight t)
                             (set 'web-mode-enable-current-column-highlight t)))
 
+;; CoffeeScript
+(add-hook 'coffee-mode-hook '(lambda ()
+                               (set 'coffee-tab-width 2)))
+
 ;; Auto-indent with a yank
 (dolist (command '(yank yank-pop))
   (eval `(defadvice ,command (after indent-region activate)
@@ -155,7 +159,7 @@
                                      css-mode        js2-mode
                                      go-mode         html-mode
                                      less-css-mode   scss-mode
-                                     web-mode))
+                                     web-mode        coffee-mode))
                 (let ((mark-even-if-inactive transient-mark-mode))
                   (indent-region (region-beginning) (region-end) nil))))))
 

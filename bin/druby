@@ -60,6 +60,6 @@ case "$ruby_executable" in
         fi
         ;;
     *)
-        exec "/usr/bin/$ruby_executable$ruby_suffix" $@
+        exec "/usr/bin/$ruby_executable$ruby_suffix" "$@"
         ;;
 esac

@@ -110,6 +110,7 @@
 
 ;; Ruby
 (add-hook 'ruby-mode-hook '(lambda ()
+                             (set 'ruby-insert-encoding-magic-comment nil)
                              (interactive) (column-marker-1 80)))
 
 ;; Python

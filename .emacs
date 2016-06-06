@@ -13,7 +13,7 @@
   less-css-mode lua-mode org smooth-scrolling yaml-mode
   graphviz-dot-mode tramp haml-mode coffee-mode php-mode
   markdown-mode scss-mode dockerfile-mode solarized-theme
-  ag web-mode erlang)
+  ag web-mode erlang rust-mode toml-mode)
   "Nice packages I depend upon.")
 (dolist (p my-packages)
   (when (not (package-installed-p p))

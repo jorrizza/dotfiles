@@ -7,3 +7,5 @@
 	insteadOf = git+ssh://git.debian.org/git/d-i/
 [push]
 	default = simple
+[alias]
+	jetzt = merge

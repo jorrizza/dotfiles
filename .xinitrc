@@ -37,7 +37,13 @@ test -x ~/.screenlayout/default.sh && ~/.screenlayout/default.sh
 wmname LG3D &
 
 # GPG
-eval $(gpg-agent --daemon --enable-ssh-support --disable-scdaemon)
+# Before systemd:
+# eval $(gpg-agent --daemon --enable-ssh-support --disable-scdaemon)
+# After systemd:
+# systemctl --user enable gpg-agent.socket
+# systemctl --user enable gpg-agent-ssh.socket
+echo "UPDATESTARTUPTTY" | gpg-connect-agent
+export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh"
 
 # Fat finger tab caps lock confusion eliminator. Especially when coding drunk.
 setxkbmap -option ctrl:nocaps

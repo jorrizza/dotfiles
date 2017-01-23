@@ -11,16 +11,6 @@ pulseaudio --start &
 # Compositing manager.
 #xcompmgr -c -C &
 
-# Clit scrolling and stuff.
-for dev in `xinput list |grep pointer |grep TrackPoint | awk -F'id=' '{ print $2 }' | awk '{ print $1 }'`; do
-  xinput set-prop $dev "Evdev Wheel Emulation" 1 &
-  xinput set-prop $dev "Evdev Wheel Emulation Button" 2 &
-  xinput set-prop $dev "Evdev Wheel Emulation Axes" 6 7 4 5 &
-done
-
-# Disable the damn touch screen.
-xinput set-prop "SYNAPTICS Synaptics Large Touch Screen" "Device Enabled" 0 &
-
 # Touchpad daemon disables touchpad when typing
 syndaemon -k -i 2 &
 

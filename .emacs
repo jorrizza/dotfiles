@@ -1,5 +1,5 @@
 ;; .emacs of jorrizza@jrrzz.net
-;; GNU Emacs 24.4
+;; GNU Emacs 25.1.1
 
 ;; Package management
 (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
@@ -9,15 +9,16 @@
 (package-initialize)
 (when (not package-archive-contents)
   (package-refresh-contents))
-(defvar my-packages '(column-marker go-mode js2-mode
+(defvar my-packages '(column-marker go-mode js2-mode ruby-mode
   less-css-mode lua-mode org smooth-scrolling yaml-mode
   graphviz-dot-mode tramp haml-mode coffee-mode php-mode
-  markdown-mode scss-mode dockerfile-mode solarized-theme
-  ag web-mode erlang rust-mode toml-mode)
+  markdown-mode scss-mode dockerfile-mode solarized-theme ag
+  web-mode erlang rust-mode toml-mode)
   "Nice packages I depend upon.")
 (dolist (p my-packages)
   (when (not (package-installed-p p))
     (package-install p)))
+
 
 ;; We don't need these
 (toggle-scroll-bar -1)
@@ -225,7 +226,12 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(inhibit-startup-screen t)
- '(org-agenda-files (quote ("/ssh:codeventur.es:/home/jorrizza/org/business.org" "/ssh:codeventur.es:/home/jorrizza/org/personal.org"))))
+ '(org-agenda-files
+   (quote
+    ("/ssh:codeventur.es:/home/jorrizza/org/business.org" "/ssh:codeventur.es:/home/jorrizza/org/personal.org")))
+ '(package-selected-packages
+   (quote
+    (yaml-mode web-mode toml-mode solarized-theme smooth-scrolling slim-mode scss-mode sass-mode rust-mode php-mode org markdown-mode lua-mode less-css-mode js2-mode hackernews graphviz-dot-mode go-mode erlang dockerfile-mode column-marker coffee-mode ag))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

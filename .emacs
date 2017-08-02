@@ -12,7 +12,7 @@
 (defvar my-packages '(column-marker go-mode js2-mode ruby-mode
   less-css-mode lua-mode org smooth-scrolling yaml-mode
   graphviz-dot-mode tramp haml-mode coffee-mode php-mode
-  markdown-mode scss-mode dockerfile-mode solarized-theme ag
+  markdown-mode dockerfile-mode solarized-theme ag
   web-mode erlang rust-mode toml-mode)
   "Nice packages I depend upon.")
 (dolist (p my-packages)
@@ -128,10 +128,6 @@
 (add-hook 'css-mode-hook '(lambda ()
                             (set 'css-indent-offset 2)))
 
-;; SCSS
-(add-hook 'scss-mode-hook '(lambda ()
-                             (set 'scss-compile-at-save nil)))
-
 ;; JavaScript
 (add-hook 'js2-mode-hook '(lambda ()
                             (interactive) (column-marker-1 80)
@@ -231,7 +227,7 @@
     ("/ssh:codeventur.es:/home/jorrizza/org/business.org" "/ssh:codeventur.es:/home/jorrizza/org/personal.org")))
  '(package-selected-packages
    (quote
-    (yaml-mode web-mode toml-mode solarized-theme smooth-scrolling slim-mode scss-mode sass-mode rust-mode php-mode org markdown-mode lua-mode less-css-mode js2-mode hackernews graphviz-dot-mode go-mode erlang dockerfile-mode column-marker coffee-mode ag))))
+    (yaml-mode web-mode toml-mode solarized-theme smooth-scrolling slim-mode sass-mode rust-mode php-mode org markdown-mode lua-mode less-css-mode js2-mode hackernews graphviz-dot-mode go-mode erlang dockerfile-mode column-marker coffee-mode ag))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

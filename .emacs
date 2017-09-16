@@ -11,9 +11,9 @@
   (package-refresh-contents))
 (defvar my-packages '(column-marker go-mode js2-mode ruby-mode
   less-css-mode lua-mode org smooth-scrolling yaml-mode
-  graphviz-dot-mode tramp haml-mode coffee-mode php-mode
-  markdown-mode dockerfile-mode solarized-theme ag
-  web-mode erlang rust-mode toml-mode)
+  graphviz-dot-mode tramp coffee-mode php-mode markdown-mode
+  dockerfile-mode solarized-theme ag web-mode erlang rust-mode
+  toml-mode)
   "Nice packages I depend upon.")
 (dolist (p my-packages)
   (when (not (package-installed-p p))

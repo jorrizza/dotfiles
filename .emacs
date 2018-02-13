@@ -5,15 +5,14 @@
 (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
                          ("marmalade" . "https://marmalade-repo.org/packages/")
                          ("melpa" . "https://melpa.org/packages/")
-                         ("org" . "http://orgmode.org/elpa/")))
+                         ("org" . "https://orgmode.org/elpa/")))
 (package-initialize)
 (when (not package-archive-contents)
   (package-refresh-contents))
-(defvar my-packages '(column-marker go-mode js2-mode ruby-mode
-  less-css-mode lua-mode org smooth-scrolling yaml-mode
-  graphviz-dot-mode tramp coffee-mode php-mode markdown-mode
-  dockerfile-mode solarized-theme ag web-mode erlang rust-mode
-  toml-mode)
+(defvar my-packages '(column-marker go-mode js2-mode ruby-mode ruby-end robe
+  less-css-mode lua-mode org smooth-scrolling yaml-mode graphviz-dot-mode tramp
+  coffee-mode php-mode markdown-mode dockerfile-mode solarized-theme ag web-mode
+  erlang rust-mode toml-mode company company-web)
   "Nice packages I depend upon.")
 (dolist (p my-packages)
   (when (not (package-installed-p p))
@@ -84,7 +83,6 @@
   "Map the return key with `newline-and-indent'"
   (local-set-key (kbd "RET") 'newline-and-indent))
 
-
 ;; ido-mode
 (ido-mode t)
 
@@ -95,6 +93,15 @@
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-iswitchb)
+
+;; Company mode is autocompletion
+(add-hook 'after-init-hook 'global-company-mode)
+(eval-after-load 'company
+  '(lambda ()
+     (push 'company-robe company-backends)
+     (push 'company-web-html company-backends)
+     ))
+;;  '(push 'company-robe company-backends))
 
 ;; Go
 (add-hook 'go-mode-hook '(lambda ()
@@ -112,6 +119,7 @@
 ;; Ruby
 (add-hook 'ruby-mode-hook '(lambda ()
                              (set 'ruby-insert-encoding-magic-comment nil)
+                             (robe-mode)
                              (interactive) (column-marker-1 80)))
 
 ;; Python

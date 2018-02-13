@@ -8,9 +8,6 @@ xset -dpms
 # Audio server.
 pulseaudio --start &
 
-# Compositing manager.
-#xcompmgr -c -C &
-
 # Touchpad daemon disables touchpad when typing
 syndaemon -k -i 2 &
 
@@ -38,8 +35,5 @@ export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh"
 # Fat finger tab caps lock confusion eliminator. Especially when coding drunk.
 setxkbmap -option ctrl:nocaps
 
-# Faster urxvt
-urxvtd -q -f -o
-
-# Awesomeness.
-exec awesome
+# Window manager
+exec i3

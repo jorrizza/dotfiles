@@ -5,12 +5,6 @@ xrdb ~/.Xresources
 xset s off
 xset -dpms
 
-# Audio server.
-pulseaudio --start &
-
-# Touchpad daemon disables touchpad when typing
-syndaemon -k -i 2 &
-
 # Clean up slow downers.
 rm -f ~/.recently-used.xbel
 rm -f ~/.recently-used
@@ -23,12 +17,7 @@ test -x ~/.screenlayout/default.sh && ~/.screenlayout/default.sh
 # Fix stupid X clients (from suckless-tools)
 wmname LG3D &
 
-# GPG
-# Before systemd:
-# eval $(gpg-agent --daemon --enable-ssh-support --disable-scdaemon)
-# After systemd:
-# systemctl --user enable gpg-agent.socket
-# systemctl --user enable gpg-agent-ssh.socket
+# GPG needs to know this stuff
 echo "UPDATESTARTUPTTY" | gpg-connect-agent
 export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh"
 

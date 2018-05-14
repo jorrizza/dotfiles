@@ -9,7 +9,7 @@
 (package-initialize)
 (when (not package-archive-contents)
   (package-refresh-contents))
-(defvar my-packages '(column-marker go-mode js2-mode ruby-mode ruby-end robe
+(defvar my-packages '(fill-column-indicator go-mode js2-mode ruby-mode ruby-end robe
   less-css-mode lua-mode org smooth-scrolling yaml-mode graphviz-dot-mode tramp
   coffee-mode php-mode markdown-mode dockerfile-mode solarized-theme ag web-mode
   erlang rust-mode toml-mode company company-web)
@@ -110,21 +110,21 @@
 
 ;; C
 (add-hook 'c-mode-hook '(lambda ()
-                          (interactive) (column-marker-1 80)))
+                          (interactive) (fci-mode)))
 
 ;; C++
 (add-hook 'c++-mode-hook '(lambda ()
-                          (interactive) (column-marker-1 80)))
+                          (interactive) (fci-mode)))
 
 ;; Ruby
 (add-hook 'ruby-mode-hook '(lambda ()
                              (set 'ruby-insert-encoding-magic-comment nil)
                              (robe-mode)
-                             (interactive) (column-marker-1 80)))
+                             (interactive) (fci-mode)))
 
 ;; Python
 (add-hook 'python-mode-hook '(lambda ()
-                               (interactive) (column-marker-1 80)
+                               (interactive) (fci-mode)
                                (set 'python-indent-offset 4)
                                (set-newline-and-indent)))
 
@@ -138,7 +138,7 @@
 
 ;; JavaScript
 (add-hook 'js2-mode-hook '(lambda ()
-                            (interactive) (column-marker-1 80)
+                            (interactive) (fci-mode)
                             (set 'js2-cleanup-whitespace t)
                             (set 'js2-basic-offset 2)
                             (set 'js2-user-font-lock-faces t)))
@@ -235,7 +235,7 @@
     ("/ssh:codeventur.es:/home/jorrizza/org/business.org" "/ssh:codeventur.es:/home/jorrizza/org/personal.org")))
  '(package-selected-packages
    (quote
-    (yaml-mode web-mode toml-mode solarized-theme smooth-scrolling slim-mode sass-mode rust-mode php-mode org markdown-mode lua-mode less-css-mode js2-mode hackernews graphviz-dot-mode go-mode erlang dockerfile-mode column-marker coffee-mode ag))))
+    (fill-column-indicator yaml-mode web-mode toml-mode solarized-theme smooth-scrolling slim-mode sass-mode rust-mode php-mode org markdown-mode lua-mode less-css-mode js2-mode hackernews graphviz-dot-mode go-mode erlang dockerfile-mode column-marker coffee-mode ag))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

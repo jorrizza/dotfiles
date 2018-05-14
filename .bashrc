@@ -33,14 +33,11 @@ if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
 fi
 
 # same for hg and git
-hg_branch() {
-    hg branch 2> /dev/null | awk '{ print ":hg:" $1 }'
-}
 git_branch() {
     git rev-parse --abbrev-ref HEAD 2> /dev/null | awk '{ print ":git:" $1 }'
 }
 
-ps1_path_suffix='${debian_chroot}$(hg_branch)$(git_branch)'
+ps1_path_suffix='${debian_chroot}$(git_branch)'
 
 PS1="\[\033[32m\][\t]\[\033[00m\]\[\033[34m\]${ps1_prefix}\[\033[00m\] \u@\h: \[\033[34m\]\w$ps1_path_suffix\[\033[00m\]\n\$ "
 

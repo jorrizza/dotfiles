@@ -1,6 +1,7 @@
 [user]
 	name = Joris van Rooij
 	email = jorrizza@jrrzz.net
+	signingkey = 5874835A8437650D195216301CE9B2A05E471171
 [color]
 	ui = auto
 [url "git://git.debian.org/d-i/"]

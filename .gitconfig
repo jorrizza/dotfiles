@@ -10,3 +10,5 @@
 	default = simple
 [alias]
 	jetzt = merge
+[commit]
+	gpgSign = true

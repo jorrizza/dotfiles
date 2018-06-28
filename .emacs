@@ -9,10 +9,12 @@
 (package-initialize)
 (when (not package-archive-contents)
   (package-refresh-contents))
-(defvar my-packages '(fill-column-indicator go-mode js2-mode ruby-mode ruby-end robe
-  less-css-mode lua-mode org smooth-scrolling yaml-mode graphviz-dot-mode tramp
-  coffee-mode php-mode markdown-mode dockerfile-mode solarized-theme ag web-mode
-  erlang rust-mode toml-mode company company-web elpy pyenv-mode)
+(defvar my-packages '(fill-column-indicator go-mode js2-mode
+  xref-js2 ruby-mode ruby-end robe less-css-mode lua-mode org
+  smooth-scrolling yaml-mode graphviz-dot-mode tramp coffee-mode
+  php-mode markdown-mode dockerfile-mode solarized-theme ag
+  web-mode erlang rust-mode toml-mode company company-web elpy
+  pyenv-mode)
   "Nice packages I depend upon.")
 (dolist (p my-packages)
   (when (not (package-installed-p p))
@@ -158,6 +160,9 @@
 ;; JavaScript
 (add-hook 'js2-mode-hook '(lambda ()
                             (interactive) (fci-mode)
+                            ;; js-mode already has M-. but we want to use it for xref-js2
+                            (define-key js-mode-map (kbd "M-.") nil)
+                            (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)
                             (set 'js2-cleanup-whitespace t)
                             (set 'js2-basic-offset 2)
                             (set 'js2-user-font-lock-faces t)))
@@ -254,7 +259,7 @@
     ("/ssh:codeventur.es:/home/jorrizza/org/business.org" "/ssh:codeventur.es:/home/jorrizza/org/personal.org")))
  '(package-selected-packages
    (quote
-    (pyenv-mode fill-column-indicator yaml-mode web-mode toml-mode solarized-theme smooth-scrolling slim-mode sass-mode rust-mode php-mode org markdown-mode lua-mode less-css-mode js2-mode hackernews graphviz-dot-mode go-mode erlang dockerfile-mode column-marker coffee-mode ag))))
+    (xref-js2 pyenv-mode fill-column-indicator yaml-mode web-mode toml-mode solarized-theme smooth-scrolling slim-mode sass-mode rust-mode php-mode org markdown-mode lua-mode less-css-mode js2-mode hackernews graphviz-dot-mode go-mode erlang dockerfile-mode column-marker coffee-mode ag))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

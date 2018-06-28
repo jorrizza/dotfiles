@@ -1,5 +1,5 @@
 ;; .emacs of jorrizza@jrrzz.net
-;; GNU Emacs 25.1.1
+;; GNU Emacs 25.2.2
 
 ;; Package management
 (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
@@ -12,7 +12,7 @@
 (defvar my-packages '(fill-column-indicator go-mode js2-mode ruby-mode ruby-end robe
   less-css-mode lua-mode org smooth-scrolling yaml-mode graphviz-dot-mode tramp
   coffee-mode php-mode markdown-mode dockerfile-mode solarized-theme ag web-mode
-  erlang rust-mode toml-mode company company-web)
+  erlang rust-mode toml-mode company company-web elpy pyenv-mode)
   "Nice packages I depend upon.")
 (dolist (p my-packages)
   (when (not (package-installed-p p))
@@ -103,6 +103,22 @@
      ))
 ;;  '(push 'company-robe company-backends))
 
+;; Company mode breaks when fci-mode is open, this is a workaround
+;; https://github.com/company-mode/company-mode/issues/180
+(defvar-local company-fci-mode-on-p nil)
+
+(defun company-turn-off-fci (&rest ignore)
+  (when (boundp 'fci-mode)
+    (setq company-fci-mode-on-p fci-mode)
+    (when fci-mode (fci-mode -1))))
+
+(defun company-maybe-turn-on-fci (&rest ignore)
+  (when company-fci-mode-on-p (fci-mode 1)))
+
+(add-hook 'company-completion-started-hook 'company-turn-off-fci)
+(add-hook 'company-completion-finished-hook 'company-maybe-turn-on-fci)
+(add-hook 'company-completion-cancelled-hook 'company-maybe-turn-on-fci)
+
 ;; Go
 (add-hook 'go-mode-hook '(lambda ()
                            (set 'tab-width 2)
@@ -123,8 +139,11 @@
                              (interactive) (fci-mode)))
 
 ;; Python
+(pyenv-mode)
+(elpy-enable)
 (add-hook 'python-mode-hook '(lambda ()
                                (interactive) (fci-mode)
+                               (interactive) (elpy-mode)
                                (set 'python-indent-offset 4)
                                (set-newline-and-indent)))
 
@@ -235,7 +254,7 @@
     ("/ssh:codeventur.es:/home/jorrizza/org/business.org" "/ssh:codeventur.es:/home/jorrizza/org/personal.org")))
  '(package-selected-packages
    (quote
-    (fill-column-indicator yaml-mode web-mode toml-mode solarized-theme smooth-scrolling slim-mode sass-mode rust-mode php-mode org markdown-mode lua-mode less-css-mode js2-mode hackernews graphviz-dot-mode go-mode erlang dockerfile-mode column-marker coffee-mode ag))))
+    (pyenv-mode fill-column-indicator yaml-mode web-mode toml-mode solarized-theme smooth-scrolling slim-mode sass-mode rust-mode php-mode org markdown-mode lua-mode less-css-mode js2-mode hackernews graphviz-dot-mode go-mode erlang dockerfile-mode column-marker coffee-mode ag))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

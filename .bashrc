@@ -91,6 +91,7 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 # Pyenv stuff
 [[ -d "$HOME/.pyenv" ]] && export PYENV_ROOT="$HOME/.pyenv"
 [[ -d "$HOME/.pyenv" ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+export WORKON_HOME=$HOME/.local/share/virtualenvs
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi

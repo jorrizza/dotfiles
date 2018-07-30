@@ -3,7 +3,6 @@
 
 ;; Package management
 (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
-                         ("marmalade" . "https://marmalade-repo.org/packages/")
                          ("melpa" . "https://melpa.org/packages/")
                          ("org" . "https://orgmode.org/elpa/")))
 (package-initialize)
@@ -14,12 +13,14 @@
   smooth-scrolling yaml-mode graphviz-dot-mode tramp coffee-mode
   php-mode markdown-mode dockerfile-mode solarized-theme ag
   web-mode erlang rust-mode toml-mode company company-web elpy
-  pyenv-mode)
+  pyenv-mode kotlin-mode)
   "Nice packages I depend upon.")
 (dolist (p my-packages)
   (when (not (package-installed-p p))
     (package-install p)))
 
+;; Don't use Simplified English
+  (setq ispell-dictionary "en_GB")
 
 ;; We don't need these
 (toggle-scroll-bar -1)
@@ -35,7 +36,7 @@
 ;; Nice font FTW
 (set-default-font "Terminus 8")
 
-;; Nice colors even more FTW
+;; Nice colours even more FTW
 (load-theme 'solarized-dark t)
 
 ;; Standard indent size
@@ -46,7 +47,7 @@
 (setq make-backup-files nil)
 
 ;; Fill mode
-(setq-default fill-column 80)
+(setq-default fill-column 79)
 
 ;; Damn you tabs!
 (setq-default indent-tabs-mode nil)
@@ -140,6 +141,11 @@
                              (robe-mode)
                              (interactive) (fci-mode)))
 
+;; Kotlin
+(add-hook 'kotlin-mode-hook '(lambda ()
+                               (set 'kotlin-tab-width 4)
+                               (interactive) (fci-mode)))
+
 ;; Python
 (pyenv-mode)
 (elpy-enable)
@@ -174,6 +180,11 @@
 ;; CoffeeScript
 (add-hook 'coffee-mode-hook '(lambda ()
                                (set 'coffee-tab-width 2)))
+
+;; Markdown
+(add-hook 'markdown-mode-hook '(lambda ()
+                                 (interactive) (flyspell-mode)
+                                 (interactive) (fci-mode)))
 
 ;; Auto-indent with a yank
 (dolist (command '(yank yank-pop))
@@ -245,6 +256,7 @@
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.nut$" . c++-mode))
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.kts$" . kotlin-mode))
 
 
 
@@ -259,7 +271,7 @@
     ("/ssh:codeventur.es:/home/jorrizza/org/business.org" "/ssh:codeventur.es:/home/jorrizza/org/personal.org")))
  '(package-selected-packages
    (quote
-    (xref-js2 pyenv-mode fill-column-indicator yaml-mode web-mode toml-mode solarized-theme smooth-scrolling slim-mode sass-mode rust-mode php-mode org markdown-mode lua-mode less-css-mode js2-mode hackernews graphviz-dot-mode go-mode erlang dockerfile-mode column-marker coffee-mode ag))))
+    (flycheck-kotlin kotlin-mode xref-js2 pyenv-mode fill-column-indicator yaml-mode web-mode toml-mode solarized-theme smooth-scrolling slim-mode sass-mode rust-mode php-mode org markdown-mode lua-mode less-css-mode js2-mode hackernews graphviz-dot-mode go-mode erlang dockerfile-mode column-marker coffee-mode ag))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -81,8 +81,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export GOPATH="$HOME/go"
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
+# Go stuff
+export GOPATH="$HOME/go"
+export PATH="$GOPATH/bin:$PATH"
 
 # Chruby stuff
 [[ -s /usr/local/share/chruby/chruby.sh ]] && source /usr/local/share/chruby/chruby.sh

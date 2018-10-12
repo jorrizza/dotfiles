@@ -1,0 +1,85 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+# Get the currently playing song through MPRIS
+
+import sys
+import json
+import dbus
+import threading
+import time
+
+def get_song():
+    """ Get the currently playing song, or None if none is playing """
+    global song
+
+    while True:
+        try:
+            player = bus.get_object('org.mpris.MediaPlayer2.spotifyd',
+                                    '/org/mpris/MediaPlayer2')
+            position = player.Get(
+                'org.mpris.MediaPlayer2.Player', 'Position',
+                dbus_interface='org.freedesktop.DBus.Properties'
+            )
+            metadata = player.Get(
+                'org.mpris.MediaPlayer2.Player', 'Metadata',
+                dbus_interface='org.freedesktop.DBus.Properties'
+            )
+            progress = int(round(float(position) /
+                                 float(metadata['mpris:length']) * 100))
+
+            song = "%s - %s %3d%%" % (
+                ', '.join(metadata['xesam:artists']),
+                metadata['xesam:title'],
+                progress
+            )
+        except:
+            song =  None
+
+        time.sleep(.5)
+
+def print_line(message):
+    """ Non-buffered printing to stdout. """
+    sys.stdout.write(message + '\n')
+    sys.stdout.flush()
+
+def read_line():
+    """ Interrupted respecting reader for stdin. """
+    # try reading a line, removing any extra whitespace
+    try:
+        line = sys.stdin.readline().strip()
+        # i3status sends EOF, or an empty line
+        if not line:
+            sys.exit(3)
+        return line
+    # exit on ctrl-c
+    except KeyboardInterrupt:
+        sys.exit()
+
+if __name__ == '__main__':
+    # Connect to the session bus
+    bus = dbus.SessionBus()
+
+    # Start the song fetching thread
+    song = None
+    threading.Thread(target=get_song).start()
+
+    # Skip the first line which contains the version header.
+    print_line(read_line())
+
+    # The second line contains the start of the infinite array.
+    print_line(read_line())
+
+    while True:
+        line, prefix = read_line(), ''
+        # ignore comma at start of lines
+        if line.startswith(','):
+            line, prefix = line[1:], ','
+
+        j = json.loads(line)
+
+        # Insert song, if any
+        if song:
+            j.insert(0, {'full_text' : song, 'name' : 'spotifyd'})
+
+        # and echo back new encoded json
+        print_line(prefix+json.dumps(j))

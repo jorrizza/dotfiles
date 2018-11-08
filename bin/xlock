@@ -1,1 +1,7 @@
-/usr/bin/slock
+#!/bin/sh
+
+set -e
+
+import -window root -monochrome - | convert - -scale 10% -scale 1000% +level-colors 'rgb(0,43,54)', /tmp/i3lock.png
+i3lock -i /tmp/i3lock.png
+rm /tmp/i3lock.png

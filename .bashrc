@@ -87,6 +87,9 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
 
+# Rust stuff
+export PATH="$HOME/.cargo/bin:$PATH"
+
 # Chruby stuff
 [[ -s /usr/local/share/chruby/chruby.sh ]] && source /usr/local/share/chruby/chruby.sh
 [[ -s /usr/local/share/chruby/auto.sh ]] && source /usr/local/share/chruby/auto.sh

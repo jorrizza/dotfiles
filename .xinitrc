@@ -27,6 +27,9 @@ dbus-update-activation-environment --verbose --systemd --all
 # Fat finger tab caps lock confusion eliminator. Especially when coding drunk.
 setxkbmap -option ctrl:nocaps
 
+# I really don't like this High DPI stuff and love my pixels
+export WINIT_HIDPI_FACTOR=1.0
+
 # Notification daemon
 dunst &
 

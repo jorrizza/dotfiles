@@ -271,7 +271,7 @@
     ("/ssh:codeventur.es:/home/jorrizza/org/business.org" "/ssh:codeventur.es:/home/jorrizza/org/personal.org")))
  '(package-selected-packages
    (quote
-    (flycheck-kotlin kotlin-mode xref-js2 pyenv-mode fill-column-indicator yaml-mode web-mode toml-mode solarized-theme smooth-scrolling slim-mode sass-mode rust-mode php-mode org markdown-mode lua-mode less-css-mode js2-mode hackernews graphviz-dot-mode go-mode erlang dockerfile-mode column-marker coffee-mode ag))))
+    (protobuf-mode flycheck-kotlin kotlin-mode xref-js2 pyenv-mode fill-column-indicator yaml-mode web-mode toml-mode solarized-theme smooth-scrolling slim-mode sass-mode rust-mode php-mode org markdown-mode lua-mode less-css-mode js2-mode hackernews graphviz-dot-mode go-mode erlang dockerfile-mode column-marker coffee-mode ag))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -105,6 +105,11 @@ fi
 # Poetry stuff
 [[ -d "$HOME/.poetry" ]] && export PATH="$HOME/.poetry/bin:$PATH"
 
+# Kubernetes stuff
+if command -v kubectl 1>/dev/null 2>&1; then
+  source <(kubectl completion bash)
+fi
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

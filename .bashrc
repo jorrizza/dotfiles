@@ -105,6 +105,11 @@ fi
 # Poetry stuff
 [[ -d "$HOME/.poetry" ]] && export PATH="$HOME/.poetry/bin:$PATH"
 
+# Pipenv stuff
+if command -v pipenv 1>/dev/null 2>&1; then
+  source <(pipenv --completion)
+fi
+
 # Kubernetes stuff
 if command -v kubectl 1>/dev/null 2>&1; then
   source <(kubectl completion bash)

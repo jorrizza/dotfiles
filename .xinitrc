@@ -33,5 +33,8 @@ export WINIT_HIDPI_FACTOR=1.0
 # Notification daemon
 dunst &
 
+# Used by i3-sensible-terminal
+export TERMINAL=alacritty
+
 # Window manager
 exec i3

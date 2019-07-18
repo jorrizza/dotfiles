@@ -1,0 +1,2 @@
+#!/bin/sh
+mpv --fs --hwdec=vaapi --vo=vaapi https://www.youtube.com/watch?v=ZY3J3Y_OU0w

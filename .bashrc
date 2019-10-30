@@ -43,7 +43,7 @@ PS1="\[\033[32m\][\t]\[\033[00m\]\[\033[34m\]${ps1_prefix}\[\033[00m\] \u@\h: \[
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
-xterm*|rxvt*)
+xterm*|rxvt*|alacritty)
     PS1="\[\e]0;\u@\h: \w$ps1_path_suffix\a\]$PS1"
     ;;
 *)

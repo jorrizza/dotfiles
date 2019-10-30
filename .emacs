@@ -13,14 +13,14 @@
   smooth-scrolling yaml-mode graphviz-dot-mode tramp coffee-mode
   php-mode markdown-mode dockerfile-mode solarized-theme ag
   web-mode erlang rust-mode toml-mode company company-web elpy
-  pyenv-mode kotlin-mode)
+  pyenv-mode kotlin-mode company-tabnine)
   "Nice packages I depend upon.")
 (dolist (p my-packages)
   (when (not (package-installed-p p))
     (package-install p)))
 
 ;; Don't use Simplified English
-  (setq ispell-dictionary "en_GB")
+(setq ispell-dictionary "en_GB")
 
 ;; We don't need these
 (toggle-scroll-bar -1)
@@ -51,6 +51,11 @@
 
 ;; Damn you tabs!
 (setq-default indent-tabs-mode nil)
+
+;; Company mode config
+(require 'company-tabnine)
+(setq company-idle-delay 0)
+(setq company-show-numbers 1)
 
 ;; Line numbering
 (global-linum-mode)
@@ -103,8 +108,8 @@
   '(lambda ()
      (push 'company-robe company-backends)
      (push 'company-web-html company-backends)
+     (push 'company-tabnine company-backends)
      ))
-;;  '(push 'company-robe company-backends))
 
 ;; Company mode breaks when fci-mode is open, this is a workaround
 ;; https://github.com/company-mode/company-mode/issues/180
@@ -271,7 +276,7 @@
     ("/ssh:codeventur.es:/home/jorrizza/org/business.org" "/ssh:codeventur.es:/home/jorrizza/org/personal.org")))
  '(package-selected-packages
    (quote
-    (protobuf-mode flycheck-kotlin kotlin-mode xref-js2 pyenv-mode fill-column-indicator yaml-mode web-mode toml-mode solarized-theme smooth-scrolling slim-mode sass-mode rust-mode php-mode org markdown-mode lua-mode less-css-mode js2-mode hackernews graphviz-dot-mode go-mode erlang dockerfile-mode column-marker coffee-mode ag))))
+    (company-tabnine protobuf-mode flycheck-kotlin kotlin-mode xref-js2 pyenv-mode fill-column-indicator yaml-mode web-mode toml-mode solarized-theme smooth-scrolling slim-mode sass-mode rust-mode php-mode org markdown-mode lua-mode less-css-mode js2-mode hackernews graphviz-dot-mode go-mode erlang dockerfile-mode column-marker coffee-mode ag))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

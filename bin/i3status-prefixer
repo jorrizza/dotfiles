@@ -25,7 +25,7 @@ def get_song():
                 dbus_interface='org.freedesktop.DBus.Properties'
             )
             progress = int(round(float(position) /
-                                 float(metadata['mpris:length']) * 100000))
+                                 float(metadata['mpris:length']) * 100))
 
             song = "%s - %s %3d%%" % (
                 ', '.join(metadata['xesam:artist']),

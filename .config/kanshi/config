@@ -1,0 +1,7 @@
+{
+	output eDP-1 mode 1920x1080 position 0,0
+}
+{
+	output eDP-1 mode 1920x1080 position 2560,180
+	output "Philips Consumer Electronics Company PHL 245E1 0x00003405" mode 2560x1440 position 0,0
+}

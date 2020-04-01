@@ -81,35 +81,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
-# Go stuff
-export GOPATH="$HOME/go"
-export PATH="$GOPATH/bin:$PATH"
-
-# Rust stuff
-export PATH="$HOME/.cargo/bin:$PATH"
-
-# Chruby stuff
-[[ -s /usr/local/share/chruby/chruby.sh ]] && source /usr/local/share/chruby/chruby.sh
-[[ -s /usr/local/share/chruby/auto.sh ]] && source /usr/local/share/chruby/auto.sh
-
-# Pyenv stuff
-[[ -d "$HOME/.pyenv" ]] && export PYENV_ROOT="$HOME/.pyenv"
-[[ -d "$HOME/.pyenv" ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-export WORKON_HOME=$HOME/.local/share/virtualenvs
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
-
-# Poetry stuff
-[[ -d "$HOME/.poetry" ]] && export PATH="$HOME/.poetry/bin:$PATH"
-
-# Pipenv stuff
-if command -v pipenv 1>/dev/null 2>&1; then
-  source <(pipenv --completion)
-fi
-
 # Kubernetes stuff
 if command -v kubectl 1>/dev/null 2>&1; then
   source <(kubectl completion bash)
@@ -118,6 +89,7 @@ if command -v minikube 1>/dev/null 2>&1; then
   source <(minikube completion bash)
 fi
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+# Pipenv stuff
+if command -v pipenv 1>/dev/null 2>&1; then
+  source <(pipenv --completion)
+fi

@@ -88,6 +88,9 @@ fi
 if command -v minikube 1>/dev/null 2>&1; then
   source <(minikube completion bash)
 fi
+if command -v helm 1>/dev/null 2>&1; then
+  source <(helm completion bash)
+fi
 
 # Pipenv stuff
 if command -v pipenv 1>/dev/null 2>&1; then

@@ -14,6 +14,13 @@ esac
 # ... or force ignoredups and ignorespace
 HISTCONTROL=ignoreboth
 
+# More history
+HISTFILESIZE=
+HISTSIZE=
+
+# Flush history
+PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+
 # append to the history file, don't overwrite it
 shopt -s histappend
 

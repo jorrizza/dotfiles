@@ -180,7 +180,8 @@ bindsym XF86MonBrightnessDown exec brightnessctl s 10%-
 bindsym Print exec grim - | wl-copy
 bindsym $mod+Print exec grim -g "$(slurp)" - | wl-copy
 bindsym Control+Print exec grim $(xdg-user-dir PICTURES)/ps_$(date +"%Y%m%d%H%M%S").png
-bindsym $mod+Control+Print exec grim -g "$(slurp)" $(xdg-user-dir PICTURES)/ps_$(date +"%Y%m%d%H%M%S").png
+bindsym $mod+Control+Print exec grim -g "$(slurp)" $(xdg-user-dir PICTURES)/screenshot_$(date +"%Y%m%d%H%M%S").png
+bindsym Control+Alt+Print exec screenrecorder
 
 # Lock screen
 bindsym $mod+Scroll_Lock exec swaylock -i ~/.config/sway/forbidden.png -s center -c 002b36

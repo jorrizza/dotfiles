@@ -1,0 +1,5 @@
+#!/bin/bash
+
+if ! killall -SIGINT wf-recorder; then
+  wf-recorder -f $(xdg-user-dir VIDEOS)/screenrecording_$(date +"%Y%m%d%H%M%S").mkv -g "$(slurp)"
+fi

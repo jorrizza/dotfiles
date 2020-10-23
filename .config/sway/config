@@ -165,6 +165,10 @@ gaps inner 10
 
 # Transparent terminals
 for_window [app_id="Alacritty"] opacity set 0.9
+for_window [class="VSCodium"] opacity set 0.9
+
+# Application fixes
+no_focus [class="com-eteks-sweethome3d-SweetHome3D" instance="sun-awt-X11-XWindowPeer"]
 
 # Keyboard nocaps
 input type:keyboard xkb_options ctrl:nocaps

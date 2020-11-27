@@ -213,4 +213,4 @@ exec_always {
 
 # Often used applications
 exec keepassxc
-exec stack
+exec nextcloud

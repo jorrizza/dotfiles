@@ -39,7 +39,7 @@ if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=":debian:$(cat /etc/debian_chroot)"
 fi
 
-# same for hg and git
+# git branch of current directory
 git_branch() {
     git rev-parse --abbrev-ref HEAD 2> /dev/null | awk '{ print ":git:" $1 }'
 }
@@ -88,18 +88,3 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Kubernetes stuff
-if command -v kubectl 1>/dev/null 2>&1; then
-  source <(kubectl completion bash)
-fi
-if command -v minikube 1>/dev/null 2>&1; then
-  source <(minikube completion bash)
-fi
-if command -v helm 1>/dev/null 2>&1; then
-  source <(helm completion bash)
-fi
-
-# Pipenv stuff
-if command -v pipenv 1>/dev/null 2>&1; then
-  source <(pipenv --completion)
-fi

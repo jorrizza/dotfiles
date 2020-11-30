@@ -61,3 +61,19 @@ export SDL_VIDEODRIVER=wayland
 # GPG needs to know this stuff
 echo "UPDATESTARTUPTTY" | gpg-connect-agent
 export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh"
+
+# Kubernetes stuff
+if command -v kubectl 1>/dev/null 2>&1; then
+  source <(kubectl completion bash)
+fi
+if command -v minikube 1>/dev/null 2>&1; then
+  source <(minikube completion bash)
+fi
+if command -v helm 1>/dev/null 2>&1; then
+  source <(helm completion bash)
+fi
+
+# Pipenv stuff
+if command -v pipenv 1>/dev/null 2>&1; then
+  source <(pipenv --completion)
+fi

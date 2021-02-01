@@ -20,6 +20,9 @@ fi
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
 
 # GCC stuff
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
@@ -54,6 +57,7 @@ export SDKMAN_DIR="$HOME/.sdkman"
 export MOZ_ENABLE_WAYLAND=1
 #export GDK_BACKEND=wayland
 export QT_QPA_PLATFORM=wayland-egl
+export QT_QPA_PLATFORMTHEME="qt5ct"
 export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
 export _JAVA_AWT_WM_NONREPARENTING=1
 export SDL_VIDEODRIVER=wayland

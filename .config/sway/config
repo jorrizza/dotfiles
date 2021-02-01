@@ -204,7 +204,7 @@ exec kanshi
 set $gnome-schema org.gnome.desktop.interface
 exec_always {
 	gsettings set $gnome-schema gtk-theme 'Adwaita'
-	gsettings set $gnome-schema icon-theme 'gnome'
+	gsettings set $gnome-schema icon-theme 'breeze-dark'
 	gsettings set $gnome-schema cursor-theme 'DMZ-Black'
 	gsettings set $gnome-schema font-name 'Terminus 8'
 }

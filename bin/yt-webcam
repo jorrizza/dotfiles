@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -e -o pipefail
+
+if [ -z "$1" ]; then
+  echo "Usage: $0 youtube-url"
+  exit 1
+fi
+
+URL=$1
+
+exec ffmpeg -stream_loop -1 -re -i $(youtube-dl -g -f 136 "$URL" || youtube-dl -g -f 135 "$URL" || youtube-dl -g -f 134 "$URL") -f v4l2 /dev/video4

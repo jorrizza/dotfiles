@@ -1,12 +1,16 @@
-profile alone {
-	output eDP-1 mode 1920x1080 position 0,0
+profile justlaptop {
+	output eDP-1 enable mode 1920x1080 position 0,0
 }
-profile justphilips {
-	output eDP-1 mode 1920x1080 position 2560,180
-	output "Philips Consumer Electronics Company PHL 245E1 0x00003405" mode 2560x1440 position 0,0
-}
-profile doubleaoc {
+profile doubleaoclaptop {
 	output eDP-1 disable
 	output "Unknown Q2577W ADQG69A000682" enable mode 2560x1440 position 0,0 transform 90
 	output "Unknown Q2577W ADQG69A000668" enable mode 2560x1440 position 1440,0 transform 270
+}
+profile doubleaoc {
+	output "Unknown Q2577W ADQG69A000682" enable mode 2560x1440 position 0,0 transform 90
+	output "Unknown Q2577W ADQG69A000668" enable mode 2560x1440 position 1440,0 transform 270
+}
+profile singleaoclaptop {
+	output eDP-1 enable mode 1920x1080
+	output "Unknown Q2577W ADQG69A000668" enable mode 2560x1440 position 1920,0 transform 270
 }

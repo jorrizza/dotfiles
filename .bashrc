@@ -18,13 +18,8 @@ HISTCONTROL=ignoreboth
 HISTFILESIZE=
 HISTSIZE=
 
-# Flush history
-PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
-
 # append to the history file, don't overwrite it
 shopt -s histappend
-
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -34,28 +29,43 @@ shopt -s checkwinsize
 # http://seclists.org/fulldisclosure/2014/Nov/74
 unset LESSOPEN LESSCLOSE
 
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=":debian:$(cat /etc/debian_chroot)"
-fi
+prompt_command() {
+    local RET=$?
 
-# git branch of current directory
-git_branch() {
-    git rev-parse --abbrev-ref HEAD 2> /dev/null | awk '{ print ":git:" $1 }'
+    # flush history
+    history -a
+
+    # set the prefix to reflect the previous command's return code
+    if [ ! "$RET" -eq 0 ]; then
+        ps1_prefix_color="31"
+    else
+        ps1_prefix_color="32"
+    fi
+    ps1_prefix="\[\033[${ps1_prefix_color}m\][$RET]\[\033[00m\]"
+
+    # set variable identifying the chroot you work in (used in the prompt below)
+    if [ -r /etc/debian_chroot ]; then
+        debian_chroot=":debian:$(cat /etc/debian_chroot)"
+    fi
+
+    # git branch of current directory
+    git_branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null | awk '{ print ":git:" $1 }')
+
+    ps1_path_suffix="${debian_chroot}${git_branch}"
+
+    PS1="${ps1_prefix} \u@\h: \[\033[34m\]\w$ps1_path_suffix\[\033[00m\]\n\$ "
+
+    # If this is an xterm set the title to user@host:dir
+    case "$TERM" in
+    xterm*|rxvt*|alacritty)
+        PS1="\[\e]0;\u@\h: \w$ps1_path_suffix\a\]$PS1"
+        ;;
+    *)
+        ;;
+    esac
+
 }
-
-ps1_path_suffix='${debian_chroot}$(git_branch)'
-
-PS1="\[\033[32m\][\t]\[\033[00m\]\[\033[34m\]${ps1_prefix}\[\033[00m\] \u@\h: \[\033[34m\]\w$ps1_path_suffix\[\033[00m\]\n\$ "
-
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*|alacritty)
-    PS1="\[\e]0;\u@\h: \w$ps1_path_suffix\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
+PROMPT_COMMAND=prompt_command
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then

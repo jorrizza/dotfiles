@@ -135,8 +135,7 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
 	position top
-#	status_command i3status | i3status-prefixer
-	status_command i3status
+	status_command i3bar
 	colors {
 		background #002b36
 		statusline #839496

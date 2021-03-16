@@ -14,7 +14,6 @@ import (
 	"barista.run/modules/battery"
 	"barista.run/modules/clock"
 	"barista.run/modules/meminfo"
-	"barista.run/modules/netspeed"
 	"barista.run/modules/sysinfo"
 	"barista.run/modules/wlan"
 	"barista.run/outputs"
@@ -125,19 +124,6 @@ func main() {
 		return out
 	})
 
-	sub := netlink.Any()
-	iface := sub.Get().Name
-	sub.Unsubscribe()
-	net := netspeed.New(iface).
-		RefreshInterval(2 * time.Second).
-		Output(func(s netspeed.Speeds) bar.Output {
-			return outputs.Pango(
-				pango.Icon("fa-upload"), spacer, pango.Textf("%7s", format.Byterate(s.Tx)),
-				pango.Text(" ").Small(),
-				pango.Icon("fa-download"), spacer, pango.Textf("%7s", format.Byterate(s.Rx)),
-			)
-		})
-
 	wireless := wlan.Any().Output(
 		func(i wlan.Info) bar.Output {
 			if !i.Enabled() {
@@ -165,7 +151,6 @@ func main() {
 		})
 
 	panic(barista.Run(
-		net,
 		wireless,
 		freeMem,
 		loadAvg,

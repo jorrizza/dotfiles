@@ -34,6 +34,11 @@ export PATH="$GOPATH/bin:$PATH"
 # Rust stuff
 export PATH="$HOME/.cargo/bin:$PATH"
 
+# JS stuff
+if command -v yarn 1>/dev/null 2>&1; then
+  export PATH="$(yarn global bin):$PATH"
+fi
+
 # Chruby stuff
 [[ -s /usr/local/share/chruby/chruby.sh ]] && source /usr/local/share/chruby/chruby.sh
 [[ -s /usr/local/share/chruby/auto.sh ]] && source /usr/local/share/chruby/auto.sh

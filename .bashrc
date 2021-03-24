@@ -57,7 +57,7 @@ prompt_command() {
 
     # If this is an xterm set the title to user@host:dir
     case "$TERM" in
-    xterm*|rxvt*|alacritty)
+    xterm*|rxvt*|alacritty|foot)
         PS1="\[\e]0;\u@\h: \w$ps1_path_suffix\a\]$PS1"
         ;;
     *)

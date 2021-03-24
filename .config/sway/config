@@ -16,7 +16,7 @@ font pango:Terminus 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec footclient
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -163,8 +163,7 @@ output * bg ~/.config/sway/bg.jpg fill
 gaps inner 10
 
 # Transparent terminals
-for_window [app_id="Alacritty"] opacity set 0.9
-for_window [class="VSCodium"] opacity set 0.9
+for_window [app_id="foot"] opacity set 0.9
 
 # Application fixes
 no_focus [class="com-eteks-sweethome3d-SweetHome3D" instance="sun-awt-X11-XWindowPeer"]
@@ -197,6 +196,9 @@ exec mako
 
 # Output configuration
 exec kanshi
+
+# Terminal server
+exec foot --server
 
 # GTK settings
 # https://github.com/swaywm/sway/wiki/GTK-3-settings-on-Wayland

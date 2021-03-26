@@ -67,6 +67,11 @@ prompt_command() {
 }
 PROMPT_COMMAND=prompt_command
 
+# direnv manipulates PROMPT_COMMAND after ours
+if command -v direnv 1>/dev/null 2>&1; then
+  eval "$(direnv hook bash)"
+fi
+
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"

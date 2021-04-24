@@ -73,7 +73,7 @@ func main() {
 		default:
 			iconName += "-empty"
 		}
-		out := outputs.Pango(pango.Icon("fa-"+iconName), disp)
+		out := outputs.Pango(pango.Icon("fa-"+iconName), spacer, disp)
 		if percentage <= 5 {
 			out.Urgent(true)
 		}

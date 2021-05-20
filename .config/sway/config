@@ -21,8 +21,8 @@ bindsym $mod+Return exec footclient
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start bemenu (a program launcher)
-bindsym $mod+d exec "bemenu-run -m all -p run --fn 'Terminus 8' --tb '#002b36' --tf '#839496' --fb '#002b36' --ff '#839496' --nb '#002b36' --nf '#839496' --hb '#839496' --hf '#fdf6e3' --sb '#839496' --sf '#fdf6e3'"
+# start wofi (a program launcher)
+bindsym $mod+d exec "wofi --show run --lines 10"
 
 # change focus
 bindsym $mod+j focus left

@@ -210,8 +210,6 @@ exec_always {
 	gsettings set $gnome-schema font-name 'Terminus 8'
 }
 
-# TODO: look into pipewire for desktop sharing
-
 # Often used applications
 exec keepassxc
 exec nextcloud

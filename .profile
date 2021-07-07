@@ -45,7 +45,8 @@ fi
 
 # Pyenv stuff
 [[ -d "$HOME/.pyenv" ]] && export PYENV_ROOT="$HOME/.pyenv"
-[[ -d "$HOME/.pyenv" ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+[[ -d "$PYENV_ROOT/bin" ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+[[ -d "$PYENV_ROOT/shims" ]] && export PATH="$PYENV_ROOT/shims:$PATH" # Not automatically done for some reason
 export WORKON_HOME=$HOME/.local/share/virtualenvs
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"

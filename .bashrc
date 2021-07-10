@@ -103,3 +103,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Chruby needs to be in .bashrc and not .profile
+[[ -s /usr/local/share/chruby/chruby.sh ]] && source /usr/local/share/chruby/chruby.sh
+[[ -s /usr/local/share/chruby/auto.sh ]] && source /usr/local/share/chruby/auto.sh
+

@@ -39,10 +39,6 @@ if command -v yarn 1>/dev/null 2>&1; then
   export PATH="$(yarn global bin):$PATH"
 fi
 
-# Chruby stuff
-[[ -s /usr/local/share/chruby/chruby.sh ]] && source /usr/local/share/chruby/chruby.sh
-[[ -s /usr/local/share/chruby/auto.sh ]] && source /usr/local/share/chruby/auto.sh
-
 # Pyenv stuff
 [[ -d "$HOME/.pyenv" ]] && export PYENV_ROOT="$HOME/.pyenv"
 [[ -d "$PYENV_ROOT/bin" ]] && export PATH="$PYENV_ROOT/bin:$PATH"

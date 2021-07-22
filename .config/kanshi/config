@@ -11,6 +11,10 @@ profile doubleaoc {
 	output "Unknown Q2577W ADQG69A000668" enable mode 2560x1440 position 1440,0 transform 270
 }
 profile singleaoclaptop {
-	output eDP-1 enable mode 1920x1080
-	output "Unknown Q2577W ADQG69A000668" enable mode 2560x1440 position 1920,0 transform 270
+	output eDP-1 enable mode 1920x1080 position 1440,0
+	output "Unknown Q2577W ADQG69A000668" enable mode 2560x1440 position 0,0 transform 270
+}
+profile whitelglaptop {
+	output "Goldstar Company Ltd LG HDR 4K 105NTAB4U528" enable mode 3840x2160 position 0,0
+	output eDP-1 enable mode 1920x1080 position 3840,2160
 }

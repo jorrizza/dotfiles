@@ -2,6 +2,8 @@
 	name = Joris van Rooij
 	email = jorrizza@jrrzz.net
 	signingkey = 5874835A8437650D195216301CE9B2A05E471171
+[includeIf "gitdir:~/src/sendcloud/"]
+	path = ~/src/sendcloud/.gitconfig
 [color]
 	ui = auto
 [url "git://git.debian.org/d-i/"]
@@ -16,7 +18,11 @@
 	insteadOf = https://github.com/
 [url "git@bitbucket.org:"]
 	insteadOf = https://bitbucket.org/
+[url "git@gitlab.com:"]
+	insteadOf = https://gitlab.com/
 [pull]
 	rebase = false
 [init]
 	defaultBranch = master
+[core]
+	excludesfile = /home/jorrizza/.gitignore

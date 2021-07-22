@@ -162,8 +162,9 @@ output * bg ~/.config/sway/bg.jpg fill
 # Window gaps
 gaps inner 10
 
-# Transparent terminals
+# Transparent terminals and editors
 for_window [app_id="foot"] opacity set 0.9
+for_window [class="Emacs"] opacity set 0.9
 
 # Application fixes
 no_focus [class="com-eteks-sweethome3d-SweetHome3D" instance="sun-awt-X11-XWindowPeer"]
@@ -186,7 +187,7 @@ bindsym $mod+Control+Print exec grim -g "$(slurp)" $(xdg-user-dir PICTURES)/scre
 bindsym Control+Alt+Print exec screenrecorder
 
 # Lock screen
-bindsym $mod+Scroll_Lock exec swaylock -i ~/.config/sway/forbidden.png -s center -c 002b36
+bindsym $mod+Control+l exec swaylock -i ~/.config/sway/forbidden.png -s center -c 002b36
 
 # xrdb
 exec xrdb -load ~/.Xresources

@@ -34,6 +34,14 @@
 
 ;; Fill mode
 (setq-default fill-column 79)
+(defun unfill-paragraph (&optional region)
+  "Takes a multi-line paragraph and makes it into a single line of text."
+  (interactive (progn (barf-if-buffer-read-only) '(t)))
+  (let ((fill-column (point-max))
+        ;; This would override `fill-column' if it's an integer.
+        (emacs-lisp-docstring-fill-column t))
+    (fill-paragraph nil region)))
+(define-key global-map "\M-Q" 'unfill-paragraph)
 
 ;; Damn you tabs!
 (setq-default indent-tabs-mode nil)
@@ -74,8 +82,12 @@
 ;; Auto completion
 (add-hook 'after-init-hook 'global-company-mode)
 
-;; ido-mode
+;; Auto completion for minibuf
 (ido-mode t)
+
+;; Settings for ag
+(setq ag-reuse-window 't)
+(setq ag-reuse-buffers 't)
 
 ;; VC sidebar hightlight
 (global-diff-hl-mode)
@@ -111,8 +123,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(inhibit-startup-screen t)
+ '(js-indent-level 2)
  '(package-selected-packages
-   '(pyenv-mode company toml-mode ag dockerfile-mode markdown-mode graphviz-dot-mode yaml-mode smooth-scrolling))
+   '(counsel plantuml-mode pyenv-mode company toml-mode ag dockerfile-mode markdown-mode graphviz-dot-mode yaml-mode smooth-scrolling))
  '(safe-local-variable-values
    '((format-all-formatters
       ("Python" black))

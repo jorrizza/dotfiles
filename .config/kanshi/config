@@ -14,7 +14,15 @@ profile singleaoclaptop {
 	output eDP-1 enable mode 1920x1080 position 1440,0
 	output "Unknown Q2577W ADQG69A000668" enable mode 2560x1440 position 0,0 transform 270
 }
-profile whitelglaptop {
-	output "Goldstar Company Ltd LG HDR 4K 105NTAB4U528" enable mode 3840x2160 position 0,0
+profile biglenovolaptop {
+	output "Lenovo Group Limited LEN P32p-20 VNA4WBAX" enable mode 3840x2160 position 0,0
 	output eDP-1 enable mode 1920x1080 position 3840,2160
+}
+profile widedelllaptop {
+	output "Dell Inc. DELL U2913WM 5YD8C393239L" enable mode 2560x1080 position 0,0
+	output eDP-1 enable mode 1920x1080 position 2560,1080
+}
+profile superwidedelllaptop {
+	output "Dell Inc. DELL P3421W 70ZVH53" enable mode 3440x1440 position 0,0
+	output eDP-1 enable mode 1920x1080 position 760,1440
 }

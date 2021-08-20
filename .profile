@@ -57,6 +57,7 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 # Wayland stuff
 export MOZ_ENABLE_WAYLAND=1
+export MOZ_DBUS_REMOTE=1
 #export GDK_BACKEND=wayland
 export QT_QPA_PLATFORM=wayland-egl
 export QT_QPA_PLATFORMTHEME="qt5ct"

@@ -211,6 +211,9 @@ exec_always {
 	gsettings set $gnome-schema font-name 'Terminus 8'
 }
 
+# Making desktop-portal work
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+
 # Often used applications
 exec keepassxc
 exec nextcloud

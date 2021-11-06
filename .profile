@@ -81,6 +81,9 @@ fi
 if command -v helm 1>/dev/null 2>&1; then
   source <(helm completion bash)
 fi
+if command -v k9s 1>/dev/null 2>&1; then
+  source <(k9s completion bash)
+fi
 
 # Pipenv stuff
 if command -v pipenv 1>/dev/null 2>&1; then

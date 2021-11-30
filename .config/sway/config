@@ -16,7 +16,8 @@ font pango:Terminus 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec footclient
+#bindsym $mod+Return exec footclient
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -164,6 +165,7 @@ gaps inner 10
 
 # Transparent terminals and editors
 for_window [app_id="foot"] opacity set 0.9
+for_window [app_id="Alacritty"] opacity set 0.9
 for_window [class="Emacs"] opacity set 0.9
 
 # Application fixes

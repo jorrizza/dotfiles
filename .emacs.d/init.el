@@ -125,7 +125,7 @@
  '(inhibit-startup-screen t)
  '(js-indent-level 2)
  '(package-selected-packages
-   '(lua-mode counsel plantuml-mode pyenv-mode company toml-mode ag dockerfile-mode markdown-mode graphviz-dot-mode yaml-mode smooth-scrolling))
+   '(k8s-mode dart-mode terraform-mode go-mode lua-mode counsel plantuml-mode pyenv-mode company toml-mode ag dockerfile-mode markdown-mode graphviz-dot-mode yaml-mode smooth-scrolling))
  '(safe-local-variable-values
    '((format-all-formatters
       ("Python" black))

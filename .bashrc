@@ -67,6 +67,10 @@ prompt_command() {
 }
 PROMPT_COMMAND=prompt_command
 
+if [ -f "$HOME/.asdf/asdf.sh" ]; then
+    . $HOME/.asdf/asdf.sh
+fi
+
 # direnv manipulates PROMPT_COMMAND after ours
 if command -v direnv 1>/dev/null 2>&1; then
   eval "$(direnv hook bash)"
@@ -103,7 +107,25 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Chruby needs to be in .bashrc and not .profile
-[[ -s /usr/local/share/chruby/chruby.sh ]] && source /usr/local/share/chruby/chruby.sh
-[[ -s /usr/local/share/chruby/auto.sh ]] && source /usr/local/share/chruby/auto.sh
-
+# Extra completions
+if command -v kubectl 1>/dev/null 2>&1; then
+  source <(kubectl completion bash)
+fi
+if command -v minikube 1>/dev/null 2>&1; then
+  source <(minikube completion bash)
+fi
+if command -v helm 1>/dev/null 2>&1; then
+  source <(helm completion bash)
+fi
+if command -v k9s 1>/dev/null 2>&1; then
+  source <(k9s completion bash)
+fi
+if command -v pipenv 1>/dev/null 2>&1; then
+  source <(pipenv --completion)
+fi
+if command -v poetry 1>/dev/null 2>&1; then
+  source <(poetry completions bash)
+fi
+if [ -f "$HOME/.asdf/completions/asdf.bash" ]; then
+  . $HOME/.asdf/completions/asdf.bash
+fi

@@ -29,6 +29,25 @@ shopt -s checkwinsize
 # http://seclists.org/fulldisclosure/2014/Nov/74
 unset LESSOPEN LESSCLOSE
 
+osc7() {
+    local strlen=${#PWD}
+    local encoded=""
+    local pos c o
+    for (( pos=0; pos<strlen; pos++ )); do
+        c=${PWD:$pos:1}
+        case "$c" in
+            [-/:_.!\'\(\)~[:alnum:]] ) o="${c}" ;;
+            * ) printf -v o '%%%02X' "'${c}" ;;
+        esac
+        encoded+="${o}"
+    done
+    printf '\e]7;file://%s%s\e\\' "${HOSTNAME}" "${encoded}"
+}
+
+osc33() {
+    printf '\e]133;A\e\\'
+}
+
 prompt_command() {
     local RET=$?
 
@@ -64,6 +83,11 @@ prompt_command() {
         ;;
     esac
 
+    # If this is foot, emit OSC-7 and OSC-133
+    if [ "$TERM" = "foot" ]; then
+        osc7
+        osc33
+    fi
 }
 PROMPT_COMMAND=prompt_command
 

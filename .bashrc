@@ -29,6 +29,26 @@ shopt -s checkwinsize
 # http://seclists.org/fulldisclosure/2014/Nov/74
 unset LESSOPEN LESSCLOSE
 
+# bash completion with cache
+cached_completion() {
+    if ! command -v "$1" 1>/dev/null 2>&1; then
+        return
+    fi
+    if [ -z "$XDG_RUNTIME_DIR" ]; then
+        return
+    fi
+
+    if [ ! -d "$XDG_RUNTIME_DIR/completions" ]; then
+        mkdir "$XDG_RUNTIME_DIR/completions"
+    fi
+
+    if [ ! -f "$XDG_RUNTIME_DIR/completions/$1" ]; then
+        $@ | tee "$XDG_RUNTIME_DIR/completions/$1" > /dev/null
+    fi
+
+    source "$XDG_RUNTIME_DIR/completions/$1"
+}
+
 osc7() {
     local strlen=${#PWD}
     local encoded=""
@@ -132,24 +152,13 @@ if ! shopt -oq posix; then
 fi
 
 # Extra completions
-if command -v kubectl 1>/dev/null 2>&1; then
-  source <(kubectl completion bash)
-fi
-if command -v minikube 1>/dev/null 2>&1; then
-  source <(minikube completion bash)
-fi
-if command -v helm 1>/dev/null 2>&1; then
-  source <(helm completion bash)
-fi
-if command -v k9s 1>/dev/null 2>&1; then
-  source <(k9s completion bash)
-fi
-if command -v pipenv 1>/dev/null 2>&1; then
-  source <(pipenv --completion)
-fi
-if command -v poetry 1>/dev/null 2>&1; then
-  source <(poetry completions bash)
-fi
+cached_completion kubectl completion bash
+cached_completion minikube completion bash
+cached_completion helm completion bash
+cached_completion k9s completion bash
+cached_completion pipenv --completion
+cached_completion poetry completions bash
+cached_completion just --completions bash
 if [ -f "$HOME/.asdf/completions/asdf.bash" ]; then
   . $HOME/.asdf/completions/asdf.bash
 fi

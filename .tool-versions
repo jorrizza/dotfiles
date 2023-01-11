@@ -10,3 +10,5 @@ k9s 0.26.7
 aws-iam-authenticator 0.6.2
 golang 1.19.4
 minikube 1.28.0
+kube-score 1.16.1
+just 1.11.0

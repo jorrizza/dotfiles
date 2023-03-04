@@ -110,6 +110,10 @@
 ;; Remove trailing white space
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+;; My spelling is sub-par
+(add-hook 'text-mode-hook 'flyspell-mode)
+(add-hook 'prog-mode-hook 'flyspell-prog-mode)
+
 ;; Python
 (add-hook 'python-mode-hook 'eglot-ensure)
 (add-hook 'python-mode-hook
@@ -124,15 +128,36 @@
  ;; If there is more than one, they won't work right.
  '(inhibit-startup-screen t)
  '(js-indent-level 2)
+ '(markdown-code-lang-modes
+   '(("ocaml" . tuareg-mode)
+     ("elisp" . emacs-lisp-mode)
+     ("ditaa" . artist-mode)
+     ("asymptote" . asy-mode)
+     ("dot" . fundamental-mode)
+     ("sqlite" . sql-mode)
+     ("calc" . fundamental-mode)
+     ("C" . c-mode)
+     ("cpp" . c++-mode)
+     ("C++" . c++-mode)
+     ("screen" . shell-script-mode)
+     ("shell" . sh-mode)
+     ("bash" . sh-mode)
+     ("yaml" . yaml-mode)))
+ '(markdown-enable-highlighting-syntax t)
+ '(markdown-fontify-code-blocks-natively t)
  '(package-selected-packages
    '(k8s-mode dart-mode terraform-mode go-mode lua-mode counsel plantuml-mode pyenv-mode company toml-mode ag dockerfile-mode markdown-mode graphviz-dot-mode yaml-mode smooth-scrolling))
  '(safe-local-variable-values
    '((format-all-formatters
       ("Python" black))
-     (python-sort-imports-on-save t))))
+     (python-sort-imports-on-save t)))
+ '(warning-suppress-log-types '((comp)))
+ '(warning-suppress-types '((comp))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :extend nil :stipple nil :background "#002b36" :foreground "#839496" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 80 :width normal :foundry "PfEd" :family "Terminus")))))
+ '(default ((t (:inherit nil :extend nil :stipple nil :background "#002b36" :foreground "#839496" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 80 :width normal :foundry "PfEd" :family "Terminus"))))
+ '(fixed-pitch ((t nil)))
+ '(fixed-pitch-serif ((t nil))))

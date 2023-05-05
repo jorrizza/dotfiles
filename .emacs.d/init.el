@@ -32,6 +32,9 @@
 ;; We use versioning. Backup files are not needed.
 (setq make-backup-files nil)
 
+;; We also never share files on the same machine
+(setq create-lockfiles nil)
+
 ;; Fill mode
 (setq-default fill-column 79)
 (defun unfill-paragraph (&optional region)
@@ -121,6 +124,14 @@
             (add-hook 'before-save-hook 'eglot-format nil t)
             (set-newline-and-indent)))
 
+;; Go
+(add-hook 'go-mode-hook
+          (lambda ()
+            (add-hook 'before-save-hook #'lsp-format-buffer t t)
+            (add-hook 'before-save-hook #'lsp-organize-imports t t)))
+(add-hook 'go-mode-hook #'lsp-deferred)
+(add-hook 'go-mode-hook #'yas-minor-mode)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -146,7 +157,7 @@
  '(markdown-enable-highlighting-syntax t)
  '(markdown-fontify-code-blocks-natively t)
  '(package-selected-packages
-   '(k8s-mode dart-mode terraform-mode go-mode lua-mode counsel plantuml-mode pyenv-mode company toml-mode ag dockerfile-mode markdown-mode graphviz-dot-mode yaml-mode smooth-scrolling))
+   '(lsp-mode lsp-ui yasnippet k8s-mode dart-mode terraform-mode go-mode lua-mode counsel plantuml-mode pyenv-mode company toml-mode ag dockerfile-mode markdown-mode graphviz-dot-mode yaml-mode smooth-scrolling))
  '(safe-local-variable-values
    '((format-all-formatters
       ("Python" black))

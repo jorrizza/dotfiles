@@ -155,6 +155,7 @@ fi
 cached_completion kubectl completion bash
 cached_completion minikube completion bash
 cached_completion helm completion bash
+cached_completion helmfile completion bash
 cached_completion k9s completion bash
 cached_completion pipenv --completion
 cached_completion poetry completions bash

@@ -39,6 +39,9 @@ if command -v yarn 1>/dev/null 2>&1; then
   export PATH="$(yarn global bin):$PATH"
 fi
 
+# Kubernetes stuff
+export PATH="${HOME}/.krew/bin:$PATH"
+
 # Wayland stuff
 export MOZ_ENABLE_WAYLAND=1
 export MOZ_DBUS_REMOTE=1

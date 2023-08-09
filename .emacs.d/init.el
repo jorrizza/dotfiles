@@ -29,6 +29,10 @@
 ;; Nice colors
 (load-theme 'solarized-dark t)
 
+;; Nice font
+(add-to-list 'default-frame-alist '(font . "Terminus-8"))
+(set-face-attribute 'default t :font "Terminus-8")
+
 ;; We use versioning. Backup files are not needed.
 (setq make-backup-files nil)
 
@@ -50,8 +54,7 @@
 (setq-default indent-tabs-mode nil)
 
 ;; Line numbering
-(global-linum-mode)
-(setq linum-format "%4d")
+(global-display-line-numbers-mode)
 
 ;; Show column number
 (column-number-mode 1)

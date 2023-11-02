@@ -65,6 +65,7 @@
 
 ;; Damn you tabs!
 (setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
 
 ;; Line numbering
 (global-display-line-numbers-mode)

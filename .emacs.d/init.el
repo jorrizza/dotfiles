@@ -5,10 +5,10 @@
 (package-initialize)
 (when (not package-archive-contents)
   (package-refresh-contents))
-(defvar my-packages '(smooth-scrolling yaml-mode eglot
+(defvar my-packages '(smooth-scrolling yaml-mode
 		      graphviz-dot-mode tramp markdown-mode
 		      dockerfile-mode ag toml-mode company
-		      pyenv-mode project xref eldoc
+		      project xref eldoc
 		      solarized-theme diff-hl)
   "Nice packages I depend upon.")
 (dolist (p my-packages)
@@ -25,6 +25,19 @@
 
 ;; Set windows title
 (setq frame-title-format '("" "%b - Emacs " emacs-version))
+
+;; Default mode
+(setq initial-major-mode 'fundamental-mode)
+
+;; Fix archaic defaults
+(setq sentence-end-double-space nil)
+
+;; Make right-click do something sensible
+(when (display-graphic-p)
+  (context-menu-mode))
+
+;; Save history of minibuffer
+(savehist-mode)
 
 ;; Nice colors
 (load-theme 'solarized-dark t)
@@ -83,19 +96,23 @@
   (local-set-key (kbd "RET") 'newline-and-indent))
 
 ;; Keep buffers in sync with filesystem
+(setq auto-revert-interval 1)
+(setq auto-revert-check-vc-info t)
 (global-auto-revert-mode t)
 
 ;; Auto completion
 (add-hook 'after-init-hook 'global-company-mode)
 
 ;; Auto completion for minibuf
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
 (ido-mode t)
 
 ;; Settings for ag
 (setq ag-reuse-window 't)
 (setq ag-reuse-buffers 't)
 
-;; VC sidebar hightlight
+;; VC sidebar highlight
 (global-diff-hl-mode)
 
 ;; Tramp
@@ -120,20 +137,42 @@
 (add-hook 'text-mode-hook 'flyspell-mode)
 (add-hook 'prog-mode-hook 'flyspell-prog-mode)
 
+;; Tree sitter stuff (not enabled in Debian yet)
+;; (setq major-mode-remap-alist
+;;       '((yaml-mode . yaml-ts-mode)
+;;         (bash-mode . bash-ts-mode)
+;;         (js2-mode . js-ts-mode)
+;;         (typescript-mode . typescript-ts-mode)
+;;         (json-mode . json-ts-mode)
+;;         (css-mode . css-ts-mode)
+;;         (python-mode . python-ts-mode)
+;;         (c-mode . c-ts-mode)
+;;         (go-mode . go-ts-mode)))
+
+;; Eglot fixes
+(use-package eglot
+  :custom
+  (eglot-send-changes-idle-time 0.1)
+
+  :config
+  (fset #'jsonrpc--log-event #'ignore)
+  )
+(defun my-eglot-organize-imports () (interactive)
+       (eglot-code-actions nil nil "source.organizeImports" t))
+
 ;; Python
-(add-hook 'python-mode-hook 'eglot-ensure)
 (add-hook 'python-mode-hook
+          'eglot-ensure
           (lambda ()
-            (add-hook 'before-save-hook 'eglot-format nil t)
+            (add-hook 'before-save-hook 'eglot-format-buffer nil t)
             (set-newline-and-indent)))
 
 ;; Go
 (add-hook 'go-mode-hook
+          'eglot-ensure
           (lambda ()
-            (add-hook 'before-save-hook #'lsp-format-buffer t t)
-            (add-hook 'before-save-hook #'lsp-organize-imports t t)))
-(add-hook 'go-mode-hook #'lsp-deferred)
-(add-hook 'go-mode-hook #'yas-minor-mode)
+            (add-hook 'before-save-hook 'eglot-format-buffer nil t)
+            (add-hook 'before-save-hook 'my-eglot-organize-imports t t)))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

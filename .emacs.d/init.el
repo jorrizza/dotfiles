@@ -158,22 +158,21 @@
   :config
   (fset #'jsonrpc--log-event #'ignore)
   )
-(defun my-eglot-organize-imports () (interactive)
-       (eglot-code-actions nil nil "source.organizeImports" t))
 
 ;; Python
 (add-hook 'python-mode-hook
-          'eglot-ensure
+          'eglot-ensure)
+(add-hook 'python-mode-hook
           (lambda ()
-            (add-hook 'before-save-hook 'eglot-format-buffer nil t)
+            (add-hook 'before-save-hook 'eglot-format nil t)
             (set-newline-and-indent)))
 
 ;; Go
 (add-hook 'go-mode-hook
-          'eglot-ensure
+          'eglot-ensure)
+(add-hook 'go-mode-hook
           (lambda ()
-            (add-hook 'before-save-hook 'eglot-format-buffer nil t)
-            (add-hook 'before-save-hook 'my-eglot-organize-imports t t)))
+            (add-hook 'before-save-hook 'eglot-format nil t)))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -200,7 +199,7 @@
  '(markdown-enable-highlighting-syntax t)
  '(markdown-fontify-code-blocks-natively t)
  '(package-selected-packages
-   '(lsp-mode lsp-ui yasnippet k8s-mode dart-mode terraform-mode go-mode lua-mode counsel plantuml-mode pyenv-mode company toml-mode ag dockerfile-mode markdown-mode graphviz-dot-mode yaml-mode smooth-scrolling))
+   '(protobuf-mode just-mode lsp-mode lsp-ui yasnippet k8s-mode dart-mode terraform-mode go-mode lua-mode counsel plantuml-mode pyenv-mode company toml-mode ag dockerfile-mode markdown-mode graphviz-dot-mode yaml-mode smooth-scrolling))
  '(safe-local-variable-values
    '((format-all-formatters
       ("Python" black))

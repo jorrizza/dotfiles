@@ -2,8 +2,8 @@ profile justlaptopdell {
 	output "AU Optronics 0x562D Unknown" enable mode 1920x1080 position 0,0
 }
 profile biglenovodellleft {
-	output "AU Optronics 0x562D Unknown" enable mode 1920x1080 position 3840,600
-	output "Lenovo Group Limited LEN P32p-20 VNA4WBAZ" enable mode 3840x2160 position 0,0
+	output "AU Optronics 0x562D Unknown" enable mode 1920x1080 position 0,600
+	output "Lenovo Group Limited LEN P32p-20 VNA4WBAX" enable mode 3840x2160 position 1920,0
 }
 profile widedelllaptop {
 	output "Dell Inc. DELL U2913WM 5YD8C393239L" enable mode 2560x1080 position 0,0

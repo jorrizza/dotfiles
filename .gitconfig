@@ -1,7 +1,7 @@
 [user]
 	name = Joris van Rooij
 	email = jorrizza@jrrzz.net
-	signingkey = 5874835A8437650D195216301CE9B2A05E471171
+	signingkey = C842731651DA8B7C9F34B5467B0742A5E4CB4D57
 [includeIf "gitdir:~/src/sendcloud/"]
 	path = ~/src/sendcloud/.gitconfig
 [color]

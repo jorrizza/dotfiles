@@ -8,7 +8,7 @@
 (defvar my-packages '(smooth-scrolling yaml-mode
 		      graphviz-dot-mode tramp markdown-mode
 		      dockerfile-mode ag toml-mode company
-		      project xref eldoc
+		      project xref eldoc go-mode
 		      solarized-theme diff-hl)
   "Nice packages I depend upon.")
 (dolist (p my-packages)

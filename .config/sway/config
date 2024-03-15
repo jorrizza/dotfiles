@@ -17,13 +17,12 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec footclient
-#bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start wofi (a program launcher)
-bindsym $mod+d exec "wofi --show run --lines 10"
+# start fuzzel (a program launcher)
+bindsym $mod+d exec "fuzzel -f Terminus:size=8 -r 0 -p '$ ' -I -T footclient -D no"
 
 # change focus
 bindsym $mod+j focus left
@@ -136,7 +135,7 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
 	position top
-	status_command bumblebee-status -m spotify cpu memory battery network time -p time.format="%Y-%m-%d %H:%M:%S" -p memory.format="{percent:.1f}%" -t solarized
+	status_command bumblebee-status -m spotify cpu memory battery-upower network time -p time.format="%Y-%m-%d %H:%M:%S" -p memory.format="{percent:.1f}%" -t solarized
 	colors {
 		background #002b36
 		statusline #839496

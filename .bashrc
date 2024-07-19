@@ -111,8 +111,8 @@ prompt_command() {
 }
 PROMPT_COMMAND=prompt_command
 
-if [ -f "$HOME/.asdf/asdf.sh" ]; then
-    . $HOME/.asdf/asdf.sh
+if command -v mise &>/dev/null; then
+    eval "$(mise activate bash)"
 fi
 
 # direnv manipulates PROMPT_COMMAND after ours
@@ -160,6 +160,3 @@ cached_completion k9s completion bash
 cached_completion pipenv --completion
 cached_completion poetry completions bash
 cached_completion just --completions bash
-if [ -f "$HOME/.asdf/completions/asdf.bash" ]; then
-  . $HOME/.asdf/completions/asdf.bash
-fi

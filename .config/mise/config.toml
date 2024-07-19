@@ -1,0 +1,28 @@
+[tools]
+usage = "latest"
+python = "latest"
+kubectl = "latest"
+awscli = "latest"
+helm = "latest"
+helmfile = "latest"
+sops = "latest"
+terraform = "latest"
+ruby = "latest"
+k9s = "latest"
+aws-iam-authenticator = "latest"
+go = "latest"
+minikube = "latest"
+kube-score = "latest"
+just = "latest"
+krew = "latest"
+task = "latest"
+amazon-ecr-credential-helper = "latest"
+helm-diff = "latest"
+kubeconform = "latest"
+kind = "latest"
+poetry = "latest"
+glab = "latest"
+zig = "latest"
+
+[settings]
+experimental = true

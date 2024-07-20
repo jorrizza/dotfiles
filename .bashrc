@@ -31,7 +31,7 @@ unset LESSOPEN LESSCLOSE
 
 # bash completion with cache
 cached_completion() {
-    if ! command -v "$1" 1>/dev/null 2>&1; then
+    if ! command -v "$1" &> /dev/null; then
         return
     fi
     if [ -z "$XDG_RUNTIME_DIR" ]; then
@@ -111,13 +111,13 @@ prompt_command() {
 }
 PROMPT_COMMAND=prompt_command
 
-if command -v mise &>/dev/null; then
+if command -v mise &> /dev/null; then
     eval "$(mise activate bash)"
 fi
 
 # direnv manipulates PROMPT_COMMAND after ours
-if command -v direnv 1>/dev/null 2>&1; then
-  eval "$(direnv hook bash)"
+if command -v direnv &> /dev/null; then
+    eval "$(direnv hook bash)"
 fi
 
 # enable color support of ls and also add handy aliases

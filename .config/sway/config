@@ -135,7 +135,7 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
 	position top
-	status_command bumblebee-status -m playerctl cpu memory battery-upower network time -p time.format="%Y-%m-%d %H:%M:%S" -p memory.format="{percent:.1f}%" -t solarized
+	status_command bumblebee-status -m playerctl cpu memory battery-upower network time -p time.format="%Y-%m-%d %H:%M:%S" -p memory.format="{percent:.1f}%" -p playerctl.layout=playerctl.song -t solarized
 	colors {
 		background #002b36
 		statusline #839496

@@ -26,3 +26,4 @@
 	defaultBranch = master
 [core]
 	excludesfile = /home/jorrizza/.gitignore
+	editor = emacs -nw

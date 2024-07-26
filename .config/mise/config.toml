@@ -26,3 +26,4 @@ zig = "latest"
 
 [settings]
 experimental = true
+legacy_version_file = false

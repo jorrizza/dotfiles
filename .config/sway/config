@@ -135,7 +135,7 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
 	position top
-	status_command bumblebee-status -m spotify cpu memory battery-upower network time -p time.format="%Y-%m-%d %H:%M:%S" -p memory.format="{percent:.1f}%" -t solarized
+	status_command bumblebee-status -m playerctl cpu memory battery-upower network time -p time.format="%Y-%m-%d %H:%M:%S" -p memory.format="{percent:.1f}%" -t solarized
 	colors {
 		background #002b36
 		statusline #839496
@@ -177,6 +177,8 @@ input type:keyboard xkb_options ctrl:nocaps
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5%
 bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
+bindsym XF86AudioPause exec playerctl pause
+bindsum XF86AudioPlay exec playerctl play
 bindsym XF86MonBrightnessUp exec brightnessctl s 10%+
 bindsym XF86MonBrightnessDown exec brightnessctl s 10%-
 

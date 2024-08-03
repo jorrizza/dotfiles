@@ -1,6 +1,5 @@
 [tools]
 usage = "latest"
-python = "latest"
 kubectl = "latest"
 awscli = "latest"
 helm = "latest"

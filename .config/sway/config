@@ -191,6 +191,7 @@ bindsym Control+Alt+Print exec screenrecorder
 
 # Lock screen
 bindsym $mod+Control+l exec swaylock -i ~/.config/sway/forbidden.png -s center -c 002b36
+exec swayidle before-sleep 'swaylock -i ~/.config/sway/forbidden.png -s center -c 002b36'
 
 # xrdb
 exec xrdb -load ~/.Xresources

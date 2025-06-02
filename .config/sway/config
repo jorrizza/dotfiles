@@ -136,6 +136,7 @@ bindsym $mod+r mode "resize"
 bar {
 	position top
 	status_command bumblebee-status -m playerctl cpu memory battery-upower network time -p time.format="%Y-%m-%d %H:%M:%S" -p memory.format="{percent:.1f}%" -p playerctl.layout=playerctl.song -t solarized
+	#status_command ~/src/zwaybar/zig-out/bin/zwaybar
 	colors {
 		background #002b36
 		statusline #839496
@@ -211,7 +212,7 @@ set $gnome-schema org.gnome.desktop.interface
 exec_always {
 	gsettings set $gnome-schema gtk-theme 'Adwaita'
 	gsettings set $gnome-schema icon-theme 'breeze-dark'
-	gsettings set $gnome-schema cursor-theme 'DMZ-Black'
+	gsettings set $gnome-schema cursor-theme 'Adwaita'
 	gsettings set $gnome-schema font-name 'Terminus 8'
 }
 

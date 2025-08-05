@@ -220,5 +220,5 @@ exec_always {
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
 # Often used applications
+exec syncthingtray
 exec keepassxc
-exec nextcloud

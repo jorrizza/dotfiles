@@ -38,6 +38,7 @@ dpi-aware=no
 # indicator-format=
 
 [cursor]
+color= 002b36 93a1a1 
 # style=block
 # color=111111 dcdccc
 # blink=no
@@ -65,7 +66,6 @@ bright4=                 839496
 bright5=                 6c71c4
 bright6=                 93a1a1
 bright7=                 fdf6e3
-cursor=                  002b36 93a1a1
 # alpha=1.0
 # foreground=dcdccc
 # background=111111

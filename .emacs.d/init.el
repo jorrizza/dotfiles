@@ -9,7 +9,7 @@
 		      graphviz-dot-mode tramp markdown-mode
 		      dockerfile-mode ag toml-mode company
 		      project xref eldoc go-mode zig-mode
-		      solarized-theme diff-hl)
+		      solarized-theme diff-hl web-mode)
   "Nice packages I depend upon.")
 (dolist (p my-packages)
   (when (not (package-installed-p p))
@@ -172,7 +172,10 @@
           'eglot-ensure)
 (add-hook 'go-mode-hook
           (lambda ()
-            (add-hook 'before-save-hook 'eglot-format nil t)))
+            (add-hook 'before-save-hook 'eglot-format nil t)
+            (add-hook 'before-save-hook (lambda ()
+                                          (call-interactively 'eglot-code-action-organize-imports))
+                      nil t)))
 
 ;; Zig
 (add-hook 'zig-mode-hook
@@ -180,6 +183,15 @@
 (add-hook 'zig-mode-hook
           (lambda ()
             (add-hook 'before-save-hook 'eglot-format nil t)))
+
+;; Web
+(add-to-list 'auto-mode-alist '("\\.gohtml\\'" . web-mode))
+(add-hook 'web-mode-hook
+          (lambda ()
+            (electric-pair-mode -1)
+            (setq web-mode-markup-indent-offset 2)
+            (setq web-mode-css-indent-offset 2)
+            (setq web-mode-code-indent-offset 2)))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -189,28 +201,19 @@
  '(inhibit-startup-screen t)
  '(js-indent-level 2)
  '(markdown-code-lang-modes
-   '(("ocaml" . tuareg-mode)
-     ("elisp" . emacs-lisp-mode)
-     ("ditaa" . artist-mode)
-     ("asymptote" . asy-mode)
-     ("dot" . fundamental-mode)
-     ("sqlite" . sql-mode)
-     ("calc" . fundamental-mode)
-     ("C" . c-mode)
-     ("cpp" . c++-mode)
-     ("C++" . c++-mode)
-     ("screen" . shell-script-mode)
-     ("shell" . sh-mode)
-     ("bash" . sh-mode)
-     ("yaml" . yaml-mode)))
+   '(("ocaml" . tuareg-mode) ("elisp" . emacs-lisp-mode) ("ditaa" . artist-mode)
+     ("asymptote" . asy-mode) ("dot" . fundamental-mode) ("sqlite" . sql-mode)
+     ("calc" . fundamental-mode) ("C" . c-mode) ("cpp" . c++-mode)
+     ("C++" . c++-mode) ("screen" . shell-script-mode) ("shell" . sh-mode)
+     ("bash" . sh-mode) ("yaml" . yaml-mode)))
  '(markdown-enable-highlighting-syntax t)
  '(markdown-fontify-code-blocks-natively t)
  '(package-selected-packages
-   '(zig-mode protobuf-mode just-mode lsp-mode lsp-ui yasnippet k8s-mode dart-mode terraform-mode go-mode lua-mode counsel plantuml-mode pyenv-mode company toml-mode ag dockerfile-mode markdown-mode graphviz-dot-mode yaml-mode smooth-scrolling))
+   '(ag company diff-hl dockerfile-mode go-mode graphviz-dot-mode just-mode
+        markdown-mode smooth-scrolling solarized-theme toml-mode web-mode
+        yaml-mode zig-mode))
  '(safe-local-variable-values
-   '((format-all-formatters
-      ("Python" black))
-     (python-sort-imports-on-save t)))
+   '((format-all-formatters ("Python" black)) (python-sort-imports-on-save t)))
  '(warning-suppress-log-types '((comp)))
  '(warning-suppress-types '((comp))))
 (custom-set-faces

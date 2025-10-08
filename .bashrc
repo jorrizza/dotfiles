@@ -115,11 +115,6 @@ if command -v mise &> /dev/null; then
     eval "$(mise activate bash)"
 fi
 
-# direnv manipulates PROMPT_COMMAND after ours
-if command -v direnv &> /dev/null; then
-    eval "$(direnv hook bash)"
-fi
-
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -157,6 +152,4 @@ cached_completion minikube completion bash
 cached_completion helm completion bash
 cached_completion helmfile completion bash
 cached_completion k9s completion bash
-cached_completion pipenv --completion
 cached_completion poetry completions bash
-cached_completion just --completions bash

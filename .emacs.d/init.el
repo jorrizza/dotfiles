@@ -70,6 +70,7 @@
 ;; Nice font
 (add-to-list 'default-frame-alist '(font . "Terminus-8"))
 (set-face-attribute 'default t :font "Terminus-8")
+(set-face-italic-p 'italic nil)
 
 ;; Smooth scrolling
 (smooth-scrolling-mode)
@@ -230,6 +231,17 @@
   (python-ts-mode . (lambda ()
                       (eglot-ensure))))
 
+;; JSON
+(use-package json-ts-mode
+  :ensure t
+
+  :mode
+  "\\.json\\'"
+
+  :hook
+  (json-ts-mode . (lambda ()
+                    (setq js-indent-level 2))))
+
 ;; Web
 (use-package web-mode
   :ensure t
@@ -242,8 +254,26 @@
    ("\\.djhtml\\'" . web-mode))
 
   :init
-  (electric-pair-mode -1)
   (setq web-mode-enable-current-column-highlight t)
   (setq web-mode-markup-indent-offset 2)
   (setq web-mode-css-indent-offset 2)
-  (setq web-mode-code-indent-offset 2))
+  (setq web-mode-code-indent-offset 2)
+
+  :hook
+  (web-mode . (lambda ()
+                (electric-pair-mode -1))))
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(company dockerfile-mode eldoc ido json-mode markdown-mode smooth-scrolling
+             solarized-theme toml-mode tree-sitter-langs yaml-mode)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(web-mode-html-attr-value-face ((t (:foreground "#2aa198" :slant normal)))))

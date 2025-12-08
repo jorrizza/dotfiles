@@ -21,3 +21,7 @@ profile biglenovothinkpadleft2 {
 	output "California Institute of Technology 0x1404 Unknown" enable mode 1920x1200 position 0,600
 	output "Lenovo Group Limited LEN P32p-20 VNA4WBAX" enable mode 3840x2160 position 1920,0
 }
+profile mobiledualscreen {
+    output "Invalid Vendor Codename - RTK 0x0101 0x01010101" enable mode 2160x1440 position 0,0
+    output "Lenovo Group Limited 0x403A Unknown" enable mode 1920x1200 position 2160,220
+}

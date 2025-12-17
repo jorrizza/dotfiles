@@ -197,6 +197,8 @@
 
   :config
   (fset #'jsonrpc--log-event #'ignore)
+  (add-to-list 'eglot-server-programs
+               '(python-mode . ("ty" "server")))
 
   :hook
   (eglot-managed-mode . (lambda ()

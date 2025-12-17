@@ -23,6 +23,9 @@ poetry = "latest"
 glab = "latest"
 zig = "latest"
 dive = "latest"
+python = "latest"
+"pipx:pynitrokey" = "latest"
+node = "latest"
 
 [settings]
 experimental = true

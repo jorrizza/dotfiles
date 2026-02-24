@@ -165,7 +165,6 @@ gaps inner 10
 
 # Transparent terminals and editors
 for_window [app_id="foot"] opacity set 0.9
-for_window [app_id="Alacritty"] opacity set 0.9
 for_window [class="Emacs"] opacity set 0.9
 
 # Application fixes
@@ -213,7 +212,7 @@ exec_always {
 	gsettings set $gnome-schema gtk-theme 'Adwaita'
 	gsettings set $gnome-schema icon-theme 'breeze-dark'
 	gsettings set $gnome-schema cursor-theme 'Adwaita'
-	gsettings set $gnome-schema font-name 'Terminus 8'
+	gsettings set $gnome-schema font-name 'Liberation Sans 10'
 }
 
 # Making desktop-portal work

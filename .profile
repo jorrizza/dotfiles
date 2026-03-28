@@ -50,7 +50,8 @@ export MOZ_ENABLE_WAYLAND=1
 export MOZ_DBUS_REMOTE=1
 #export GDK_BACKEND=wayland
 export QT_QPA_PLATFORM=wayland-egl
-export QT_QPA_PLATFORMTHEME="qt5ct"
+# needs qt{5,6}-gtk-platformtheme/
+export QT_QPA_PLATFORMTHEME=gtk3
 export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
 export _JAVA_AWT_WM_NONREPARENTING=1
 export SDL_VIDEODRIVER=wayland

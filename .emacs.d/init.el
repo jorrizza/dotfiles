@@ -92,6 +92,8 @@
 ;; Editor Behavior
 ;;
 
+;; Allow for access to OS clipboard when running in a (foot) terminal
+(setq-default xterm-extra-capabilities '(modifyOtherKeys reportBackground setSelection getSelection))
 
 ;; Make M-arrow work for window switching
 (windmove-default-keybindings 'meta)

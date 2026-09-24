@@ -32,4 +32,5 @@ experimental = true
 legacy_version_file = false
 
 [env]
-DOCKER_HOST = "unix://{{env.XDG_RUNTIME_DIR}}/docker.sock"
+DOCKER_SOCK = "{{env.XDG_RUNTIME_DIR}}/docker.sock"
+DOCKER_HOST = "unix://{{env.DOCKER_SOCK}}"

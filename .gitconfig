@@ -12,6 +12,7 @@
 	default = simple
 [alias]
 	jetzt = merge
+	update = commit -a --amend --no-edit
 [commit]
 	gpgSign = true
 [url "git@github.com:"]

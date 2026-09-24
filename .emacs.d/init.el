@@ -21,6 +21,8 @@
 (add-to-list 'package-selected-packages 'markdown-mode)
 (add-to-list 'package-selected-packages 'toml-mode)
 (add-to-list 'package-selected-packages 'yaml-mode)
+(add-to-list 'package-selected-packages 'go-template-mode)
+(add-to-list 'package-selected-packages 'go-template-helper-mode)
 
 ;; Auto-complete
 (add-to-list 'package-selected-packages 'company)
@@ -246,6 +248,16 @@
   (json-ts-mode . (lambda ()
                     (setq js-indent-level 2))))
 
+;; YAML
+(use-package yaml-mode
+  :ensure t
+
+  :mode
+  "\\.ya?ml\\(\\.gotmpl\\)?\\'")
+(use-package go-template-helper-mode
+  :ensure t
+  :hook ((yaml-mode . go-template-helper-mode)))
+
 ;; Web
 (use-package web-mode
   :ensure t
@@ -272,9 +284,12 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ignored-local-variable-values
+   '((apheleia-formatter . ruff-isort) (python-sort-imports-on-save t)))
  '(package-selected-packages
-   '(company dockerfile-mode eldoc ido json-mode markdown-mode smooth-scrolling
-             solarized-theme toml-mode tree-sitter-langs yaml-mode)))
+   '(company dockerfile-mode eldoc go-template-helper-mode ido json-mode
+             markdown-mode smooth-scrolling solarized-theme toml-mode
+             tree-sitter-langs yaml-mode)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

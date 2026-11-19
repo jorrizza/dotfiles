@@ -54,9 +54,11 @@ export QT_QPA_PLATFORM=wayland-egl
 export QT_QPA_PLATFORMTHEME=gtk3
 export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
 export _JAVA_AWT_WM_NONREPARENTING=1
-export SDL_VIDEODRIVER=wayland
+export SDL_VIDEODRIVER=wayland,x11
 export XDG_CURRENT_DESKTOP=sway
 export XDG_SESSION_TYPE=wayland
+export ELECTRON_OZONE_PLATFORM_HINT=wayland
+export PROTON_ENABLE_WAYLAND=1
 
 # GPG needs to know this stuff
 echo "UPDATESTARTUPTTY" | gpg-connect-agent

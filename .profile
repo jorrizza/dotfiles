@@ -6,7 +6,7 @@
 
 # the default umask is set in /etc/profile; for setting the umask
 # for ssh logins, install and configure the libpam-umask package.
-#umask 022
+umask 022
 
 # let's also include sbin to the $PATH even though we're not root
 PATH="$PATH:/usr/sbin"
